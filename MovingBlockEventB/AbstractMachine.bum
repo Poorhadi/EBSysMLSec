@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.variable name="_RqDHwErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="phase"/>
+    <org.eventb.core.variable name="_RqDu0ErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="message_PositionReport"/>
+    <org.eventb.core.variable name="_RqDu0UrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="message_Measurement"/>
+    <org.eventb.core.variable name="_RqEV4ErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="message_TraveledDistance"/>
+    <org.eventb.core.variable name="_RqEV4UrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="message_BrakingActivation"/>
+    <org.eventb.core.variable name="_RqEV4krtEe2dfPVZTbUaQQ" org.eventb.core.identifier="recv_message_PositionReport"/>
+    <org.eventb.core.invariant name="_RqE88ErtEe2dfPVZTbUaQQ" org.eventb.core.comment=" " org.eventb.core.label="inv1" org.eventb.core.predicate="phase ∈ Phases"/>
+    <org.eventb.core.invariant name="_RqFkAErtEe2dfPVZTbUaQQ" org.eventb.core.label="inv2" org.eventb.core.predicate="message_PositionReport∈PositionReport→ ℤ"/>
+    <org.eventb.core.invariant name="_RqGLEErtEe2dfPVZTbUaQQ" org.eventb.core.label="inv4" org.eventb.core.predicate="message_Measurement∈Measurement→ ℤ"/>
+    <org.eventb.core.invariant name="_RqGLEUrtEe2dfPVZTbUaQQ" org.eventb.core.label="inv5" org.eventb.core.predicate="message_TraveledDistance∈TraveledDistance→ ℤ"/>
+    <org.eventb.core.invariant name="_RqGyIErtEe2dfPVZTbUaQQ" org.eventb.core.label="inv6" org.eventb.core.predicate="message_BrakingActivation∈BrakingActivation→ ℤ"/>
+    <org.eventb.core.invariant name="_RqHZMErtEe2dfPVZTbUaQQ" org.eventb.core.label="inv3" org.eventb.core.predicate="recv_message_PositionReport∈PositionReport→ℤ"/>
+    <org.eventb.core.event name="_RqHZMUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_EmergencyBrake">
+        <org.eventb.core.guard name="_RqInUErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_PositionReport "/>
+        <org.eventb.core.action name="_RqJOYErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_EmergencyBrake" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqJOYUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_EmergencyBrake">
+        <org.eventb.core.guard name="_RqJ1cErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_EmergencyBrake"/>
+        <org.eventb.core.action name="_RqJ1cUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_EmergencyBrake" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqJ1ckrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_ModelingPurposeByRBC">
+        <org.eventb.core.guard name="_RqKcgErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_PositionReport "/>
+        <org.eventb.core.action name="_RqKcgUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_ModelingPurposeByRBC" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqLDkErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_ModelingPurposeByRBC">
+        <org.eventb.core.guard name="_RqLDkUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_ModelingPurposeByRBC"/>
+        <org.eventb.core.action name="_RqLqoErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_ModelingPurposeByRBC" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqLqoUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_Empty">
+        <org.eventb.core.guard name="_RqMRsErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_PositionReport "/>
+        <org.eventb.core.action name="_RqMRsUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_Empty" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqM4wErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_Empty">
+        <org.eventb.core.guard name="_RqNf0ErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_Empty"/>
+        <org.eventb.core.action name="_RqNf0UrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_Empty" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqOG4ErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_BrakingTriggered">
+        <org.eventb.core.guard name="_RqOG4UrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_BrakingActivation "/>
+        <org.eventb.core.action name="_RqOt8ErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_BrakingTriggered" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqPVAErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_BrakingTriggered">
+        <org.eventb.core.guard name="_RqQjIErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_BrakingTriggered"/>
+        <org.eventb.core.action name="_RqQjIUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_BrakingTriggered" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqRKMErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_ModelingPurposeByBRK">
+        <org.eventb.core.guard name="_RqRKMUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_BrakingActivation "/>
+        <org.eventb.core.action name="_RqRxQErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqRxQUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_ModelingPurposeByBRK">
+        <org.eventb.core.guard name="_RqRxQkrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_ModelingPurposeByBRK"/>
+        <org.eventb.core.action name="_RqSYUErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqSYUUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_PositionReport">
+        <org.eventb.core.guard name="_RqS_YErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_Measurement "/>
+        <org.eventb.core.action name="_RqS_YUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_PositionReport" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqS_YkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_PositionReport:∈PositionReport→ℤ" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqTmcErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_PositionReport">
+        <org.eventb.core.parameter name="_RqTmcUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_minSafe"/>
+        <org.eventb.core.parameter name="_RqUNgErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_maxSafe"/>
+        <org.eventb.core.parameter name="_RqUNgUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_mac"/>
+        <org.eventb.core.parameter name="_RqU0kErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="attack"/>
+        <org.eventb.core.guard name="_RqU0kUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_PositionReport"/>
+        <org.eventb.core.guard name="_RqVboErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="(attack=0 ⇒ par_minSafe= message_PositionReport(PositionReport_minSafe)) ∧ (attack=1 ⇒par_minSafe=999) ∧ par_minSafe∈ ℤ"/>
+        <org.eventb.core.guard name="_RqVboUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="(attack=0 ⇒ par_maxSafe= message_PositionReport(PositionReport_maxSafe)) ∧ (attack=1 ⇒par_maxSafe=999) ∧ par_maxSafe∈ ℤ"/>
+        <org.eventb.core.guard name="_RqVbokrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd4" org.eventb.core.predicate="(attack=0 ⇒ par_mac= message_PositionReport(PositionReport_mac)) ∧ (attack=1 ⇒par_mac=999) ∧ par_mac∈ ℤ"/>
+        <org.eventb.core.guard name="_RqWCsErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd5" org.eventb.core.predicate="attack ∈ {0,2}"/>
+        <org.eventb.core.action name="_RqWCsUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_PositionReport" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqWCskrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="recv_message_PositionReport≔ {PositionReport_minSafe↦par_minSafe,PositionReport_maxSafe↦par_maxSafe,PositionReport_mac↦par_mac}" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_RqWCskrtEe2dfPVZTbUaQR" org.eventb.core.assignment="attackPositionReport ≔ bool(attack=2)" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqWpwErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_Measurement">
+        <org.eventb.core.guard name="_RqWpwUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_TraveledDistance "/>
+        <org.eventb.core.action name="_RqXQ0ErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_Measurement" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqXQ0UrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_Measurement:∈Measurement→ℤ" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqXQ0krtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_Measurement">
+        <org.eventb.core.parameter name="_RqX34ErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_minSafe"/>
+        <org.eventb.core.parameter name="_RqX34UrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_maxSafe"/>
+        <org.eventb.core.guard name="_RqX34krtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_Measurement"/>
+        <org.eventb.core.guard name="_RqYe8ErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="par_minSafe= message_Measurement(Measurement_minSafe)"/>
+        <org.eventb.core.guard name="_RqYe8UrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="par_maxSafe= message_Measurement(Measurement_maxSafe)"/>
+        <org.eventb.core.action name="_RqZGAErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_Measurement" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqZtEErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_TraveledDistance">
+        <org.eventb.core.guard name="_RqaUIErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_ModelingPurposeByBRK "/>
+        <org.eventb.core.action name="_RqaUIUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_TraveledDistance" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_Rqa7MErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_TraveledDistance:∈TraveledDistance→ℤ" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Rqa7MUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_TraveledDistance">
+        <org.eventb.core.parameter name="_Rqa7MkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_distance"/>
+        <org.eventb.core.guard name="_RqbiQErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_TraveledDistance"/>
+        <org.eventb.core.guard name="_RqbiQUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="par_distance= message_TraveledDistance(TraveledDistance_distance)"/>
+        <org.eventb.core.action name="_RqbiQkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_TraveledDistance" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqcJUErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Sending_BrakingActivation">
+        <org.eventb.core.guard name="_RqcJUUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_Measurement ∨ phase=r_Empty ∨ phase=r_ModelingPurposeByRBC ∨ phase=r_EmergencyBrake "/>
+        <org.eventb.core.action name="_RqcJUkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_BrakingActivation" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqcwYErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_BrakingActivation:∈BrakingActivation→ℤ" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_RqcwYUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receiving_BrakingActivation">
+        <org.eventb.core.parameter name="_RqcwYkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_activation"/>
+        <org.eventb.core.guard name="_RqdXcErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_BrakingActivation"/>
+        <org.eventb.core.guard name="_RqdXcUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="par_activation= message_BrakingActivation(BrakingActivation_activation)"/>
+        <org.eventb.core.action name="_RqdXckrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_BrakingActivation" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Rqd-gErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_RqelkErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqelkUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_PositionReport, recv_message_PositionReport :∣ message_PositionReport'∈PositionReport→ ℤ ∧ recv_message_PositionReport'= message_PositionReport'" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_RqfMoErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_Measurement:∈Measurement→ ℤ" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_RqfMoUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_TraveledDistance:∈TraveledDistance→ ℤ" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="_RqfzsErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_BrakingActivation:∈BrakingActivation→ ℤ" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="_RqfzsUrtEe2dfPVZTbUaQR" org.eventb.core.assignment="attackPositionReport ≔ FALSE" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="_Rqd-gErtEe2dfPVZTbUaQR" org.eventb.core.target="MainContext"/>
+    <org.eventb.core.variable name="_Rqd-gErtEe2dfPVZTbUaQS" org.eventb.core.identifier="attackPositionReport"/>
+    <org.eventb.core.invariant name="_Rqd-gErtEe2dfPVZTbUaQT" org.eventb.core.label="inv7" org.eventb.core.predicate="attackPositionReport ∈ BOOL "/>
+    <org.eventb.core.invariant name="_Rqd-gErtEe2dfPVZTbUaQU" org.eventb.core.label="inv8" org.eventb.core.predicate="(attackPositionReport=FALSE ∧ phase≠ s_PositionReport) ⇒recv_message_PositionReport= message_PositionReport"/>
+</org.eventb.core.machineFile>

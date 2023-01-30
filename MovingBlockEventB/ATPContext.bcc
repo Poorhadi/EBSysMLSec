@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
+    <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(ATP_States,{fullSupervision},{odo},{receiveInfo},{TrainTrip})" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.axiom#_Ukv-U0rtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="T_NVCONTACT∈ℤ" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.axiom#_UkwlYErtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name=")" org.eventb.core.label="axm3" org.eventb.core.predicate="T_NVCONTACT=20" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.axiom#_UkwlYErtEe2dfPVZTbUaQR" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scConstant name="fullSupervision" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.constant#_UkvXQkrtEe2dfPVZTbUaQQ" org.eventb.core.type="ATP_States"/>
+    <org.eventb.core.scConstant name="receiveInfo" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.constant#_Ukv-UUrtEe2dfPVZTbUaQQ" org.eventb.core.type="ATP_States"/>
+    <org.eventb.core.scCarrierSet name="ATP_States" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.carrierSet#_UkuwMErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℙ(ATP_States)"/>
+    <org.eventb.core.scConstant name="TrainTrip" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.constant#_Ukv-UkrtEe2dfPVZTbUaQQ" org.eventb.core.type="ATP_States"/>
+    <org.eventb.core.scConstant name="odo" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.constant#_Ukv-UErtEe2dfPVZTbUaQQ" org.eventb.core.type="ATP_States"/>
+    <org.eventb.core.scConstant name="T_NVCONTACT" org.eventb.core.source="/Railway2/ATPContext.buc|org.eventb.core.contextFile#ATPContext|org.eventb.core.constant#_UkvXQErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>
