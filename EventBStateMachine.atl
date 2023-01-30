@@ -1,0 +1,448 @@
+-- @nsURI UML=http://www.eclipse.org/uml2/5.0.0/UML
+-- @path eventbcore=/org.eventb.emf.core/model/eventbcore.ecore
+
+module EventBStateMachine;
+create OUT : eventbcore from IN : UML;
+
+helper def: block : String ='RBC';
+helper def: behaviour : UML!StateMachine = '';
+helper def: INVcounter:Integer =1;
+
+-- ###################### Find the state machine diagram and define a variable shows the state. #####################
+-- ASM 1) all properties of a block have names. 2) the SMD of the block is defined as classifierBehaviour.
+entrypoint rule classifierBehavior(){
+	to
+		var : eventbcore!Variable(
+			name <- thisModule.block + '_state'	
+		),
+		inv : eventbcore!Invariant(
+			name <- 'inv'+thisModule.INVcounter.toString(),
+			predicate <- var.name + ' : '  + thisModule.block+'_States'     
+			)
+	do{
+		thisModule.INVcounter <- thisModule.INVcounter+1;
+		for (e in UML!Class.allInstances()){
+			if (e.name=thisModule.block and e.oclIsTypeOf(UML!Class)){
+				thisModule.behaviour <- e.classifierBehavior;
+			}
+		}
+	}
+}
+-- ###########################################
+
+helper context String def: PyToB(): String= let x: String= self.PyToB2() in x.regexReplaceAll('==',' = ').regexReplaceAll('True','TRUE').regexReplaceAll('False','FALSE') ;
+helper context String def: PyToB2(): String= let x: String= self.PyToB1() in x.regexReplaceAll('!=',' /= ') ;
+helper context String def: PyToB1(): String= self.regexReplaceAll(' and ','&');
+
+
+helper context String def: PyToBInit(): String= let x: String= self.PyToB2() in x.regexReplaceAll('==',' = ').regexReplaceAll('true','TRUE').regexReplaceAll('false','FALSE') ;
+
+-- ###################### Create variables for the properties of the block. #####################
+-- ASM 1) Only Boolean and Integer are considered as the variales types.
+rule blockProperties2variables{
+	from 
+		p : UML!Property (p.refImmediateComposite().name= thisModule.block and (not p.oclIsTypeOf(UML!Port)) and p.isReadOnly=false)
+	to
+		v : eventbcore!Variable(
+			name <- p.name	
+		),
+		inv : eventbcore!Invariant(
+			name <- 'inv'+ thisModule.INVcounter.toString(),
+			predicate <- v.name + ':'
+			),
+		act : eventbcore!Action(
+			action <- v.name )
+	do{
+		thisModule.INVcounter <- thisModule.INVcounter+1;
+		if (p.type.name='Integer'){
+		inv.predicate<-inv.predicate+'INT ';
+		act.action <- act.action + ':: INT';
+		}
+	if (p.type.name='Boolean'){
+		inv.predicate<-inv.predicate+'BOOL ';
+		act.action <- act.action + ':: BOOL';
+		}
+	if (not p.defaultValue.oclIsUndefined()){
+		act.action <- v.name + ':=' +  p.defaultValue.value.toString().PyToBInit();
+	}
+		 
+	}
+}
+
+-- ###########################################
+-- ASM 1) the order of parameters and the order of signal attributes matched so that the parameters names are identical with attributes name. 
+-- 2) the attributes of the signal must be taken using parameters
+rule triggers2guard{
+	from 
+		trg : UML!Trigger (trg.refImmediateComposite().refImmediateComposite().refImmediateComposite()=thisModule.behaviour
+		and trg.event.signal.ownedAttribute.notEmpty() 
+		and trg.refImmediateComposite().effect.oclIsUndefined()=false )
+	using {
+		behave : UML!Activity = '';
+		t : UML!Transition = trg.refImmediateComposite();
+		s : UML!Signal = trg.event.signal;
+	}
+	to
+		grd : eventbcore!Guard(
+			name <- 'grd',
+			predicate <- ''
+			)
+	do{
+		grd.predicate<-'';
+				for (att in s.ownedAttribute ){
+					grd.predicate <- grd.predicate + 'par_'+att.name + ' = ';
+					for (par in t.effect.ownedParameter){
+						if (par.name =att.name){
+							for (node in t.effect.node){
+								if(node.oclIsTypeOf(UML!ActivityParameterNode)){
+									if (node.parameter=par){-- we find the input node of the activity of the transition
+										behave <- node.outgoing.at(1).target.refImmediateComposite().behavior ; 
+										for (par in behave.ownedParameter){
+											if (par.name = node.outgoing.at(1).target.name){
+												for (no in behave.node){
+													if (no.oclIsTypeOf(UML!ActivityParameterNode)){
+														if(no.parameter=par){
+															grd.predicate <- grd.predicate+ no.outgoing.at(1).target.name + ' & ';
+														}
+													}
+												}
+											}
+										}				
+									}
+								}
+							}
+						}
+					}
+				}
+		grd.predicate <- grd.predicate.substring(1, grd.predicate.size()-2);
+	}
+}
+
+
+rule inputs2parameters{
+	from
+		par: UML!Parameter (par.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite()=thisModule.behaviour)
+	to
+		evtpar: eventbcore!Parameter(
+			name <- par.name)
+}
+
+
+
+-- ASM: 1) For each argument of send signal action there should be one object flow from the code modeling the activity of the transition.
+rule sendSignal2ACT{ 
+	from 
+		call : UML!CallBehaviorAction 
+		( if call.behavior.node -> exists(i | i.oclIsTypeOf(UML!SendSignalAction))
+			then 
+			call.behavior.node -> any(i | i.oclIsTypeOf(UML!SendSignalAction)).signal.ownedAttribute.notEmpty() and call.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite()=thisModule.behaviour
+			else
+			false
+		endif)
+	using{
+		sndvalue: String='';
+		sndSig: UML!SendSignalAction=call.behavior.node -> any(i | i.oclIsTypeOf(UML!SendSignalAction));
+	}
+		
+	to 
+		act : eventbcore!Action(
+			comment <- 'Refines ' + 'Sending_'+sndSig.signal.name,
+			action <- '')
+	do{
+		act.action <- 'message_' + sndSig.signal.name + ':={';
+	}
+}
+
+
+-- ###################### Create Events for the transitions of the block. #####################
+-- ASM 1) if there are two transitions with the same source and targets then the transitions must be named differently.
+rule SMD{
+	from 
+		t : UML!Transition (t.refImmediateComposite().refImmediateComposite()=thisModule.behaviour and not(t.source.oclIsTypeOf(UML!Pseudostate)))
+		using{
+			isCode : Boolean = false;
+			code : String= ''; -- it shows the code in pyhton representing the effect of t
+			guard : String=''; -- it shows the guard of t
+			numtab: Integer=0; -- number of tabs in a line of the code
+			prenumtab: Integer = 0; -- number of tabs in the previous line of the code
+			pars : Sequence(String)= ''.toSequence(); -- corresponding parameters for the conditions of if cluases in which a line of the code is inside. 
+			name : String= '';
+			GRDcounter: Integer=1;
+			ACTcounter: Integer=1;
+			PARcounter: Integer=1;
+			ifpar: eventbcore!Parameter='';
+			
+	}
+	to
+		evt : eventbcore!Event(
+			name <-  t.source.name +'_To_'+t.target.name+t.name,
+			actions <- act,
+			guards <- grd
+			),
+		grd : eventbcore!Guard(
+			name <- 'grd'+GRDcounter.toString(),
+			predicate <- thisModule.block + '_state' + ' = '+ t.source.name
+			),
+		act : eventbcore!Action(
+			name <- 'act'+ACTcounter.toString(),
+			action <- thisModule.block + '_state' + ' := '+ t.target.name
+			)
+	do{
+		GRDcounter <- GRDcounter+1;
+		ACTcounter <- ACTcounter+1;
+		
+		-- ----------------------------- Decide if the transition will receive some signals and connect the parameters define in abstract machine with parameters used in the code of the effect -------
+		if (t.effect.oclIsUndefined()=false){
+			for (trg in t.trigger){
+				if (trg.event.signal.ownedAttribute.notEmpty() ){
+				evt.guards <- thisModule. resolveTemp(trg,'grd');
+				thisModule. resolveTemp(trg,'grd').name <- thisModule. resolveTemp(trg,'grd').name+ GRDcounter.toString();
+				GRDcounter <- GRDcounter+1;
+				}
+				for (par in t.effect.ownedParameter){
+					evt.parameters <- thisModule. resolveTemp(par,'evtpar');
+				}
+				evt.comment<- 'Refines ' + 'Receiving_'+trg.event.signal.name;
+			}
+		
+		-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+		-- -------------------------------Find the code of t and store it in Variable 'code'--------------------------------------
+			code <- t.effect.refGetValue('node') -> any(i | i.oclType()=UML!CallBehaviorAction);
+			if (not code.oclIsUndefined()){
+				code <- code.behavior.refGetValue('node') -> any(i | i.oclType()=UML!OpaqueAction);
+				if (not code.oclIsUndefined()){
+					if (code.body.notEmpty()){
+						code <- code.body.at(1);
+						isCode <- true;
+					}
+				}
+			}
+		}
+		-- --------------------------------  Translate the code to guards and actions ---------------------------------------------------------------------------------------------------------------------
+		if (isCode=true){
+			for (line in code.split('[\n]')){
+				prenumtab <- numtab;
+				numtab<-0;
+				for (chr in line.toSequence()){
+					if (chr='\t'){
+						numtab <- numtab+1;
+					}
+				}
+				if (prenumtab>numtab){ -- it means that prenumtab is at least 1 and there is some parameter in the sequence.
+					pars <- pars.subSequence(1,pars.size()-1);
+				}
+				if (line.trim().startsWith('if ')){
+					evt.parameters <- thisModule.PARIF('par'+PARcounter.toString()); -- add the parameter to the parameters of the event
+					pars <- pars.append('par'+PARcounter.toString()); -- create a parameter for the if cluase and append to the list.
+					evt.guards <- evt.guards.append(thisModule.GRD('grd'+GRDcounter.toString()) );  -- create a guard and add it to the guard of the event
+					evt.guards.last().predicate <- line.trim().substring(3,line.trim().size()-1).PyToB() + ' <=> ' + 'par'+PARcounter.toString()+' = TRUE'; -- this state the condition is true if and only if the parameter is true.
+					PARcounter <- PARcounter+1;
+					GRDcounter <- GRDcounter+1;
+				}else{
+					if (not(line.trim().startsWith('from random')) and not(line.trim()='')){
+						if ( eventbcore!Variable.allInstances().asSequence()-> collect(i | i.name).includes(line.trim().regexReplaceAll('=.*', '').trim())){
+							if(not evt.parameters->exists( par | par.name='par_'+line.trim().regexReplaceAll('=.*', '').trim() ) ){
+							evt.parameters <- thisModule.PAR('par_'+line.trim().regexReplaceAll('=.*', '').trim());
+							}
+							name <- 'par_'+line.trim().regexReplaceAll('=.*', '').trim();
+						}else{
+							if ( not(line.trim()='')){
+								if(not evt.parameters->exists( par | par.name=line.trim().regexReplaceAll('=.*', '').trim()) ){
+									evt.parameters <- thisModule.PAR(line.trim().regexReplaceAll('=.*', '').trim());
+								}
+								name <- line.trim().regexReplaceAll('=.*', '').trim();
+							}
+						}
+						if (not (line.trim().regexReplaceAll('.*=', '').trim().size() = line.trim().regexReplaceAll('.*=', '').trim().regexReplaceAll('randint(.*,.*)', '').size())  ){
+							evt.parameters<- thisModule.PAR('rnd'+ PARcounter.toString());
+							PARcounter<- PARcounter+1;
+							evt.guards <- evt.guards.append(thisModule.GRD('grd'+ (GRDcounter-1).toString()));
+							GRDcounter <- GRDcounter+1;
+							evt.guards.last().predicate <- 'rnd'+ (PARcounter-1).toString()+ ':' + line.trim().regexReplaceAll('.*=', '').trim().regexReplaceAll('.*randint[(]', ' ').regexReplaceAll('[)].*',' ').regexReplaceAll(',', '..');
+						}
+						evt.guards <- evt.guards.append(thisModule.GRD('grd'+GRDcounter.toString()));
+						GRDcounter <- GRDcounter+1;
+						if (pars.notEmpty()){
+							evt.guards.last().predicate <- '(';
+							for(p in pars){
+								evt.guards.last().predicate <- evt.guards.last().predicate +p+' = TRUE & ';
+							}
+							evt.guards.last().predicate <- evt.guards.last().predicate.substring(1,evt.guards.last().predicate.size()-2);
+							-- the above assignment only removes the last char in the predicate which is &.
+							evt.guards.last().predicate <- evt.guards.last().predicate + ')=>';
+						}
+						evt.guards.last().predicate <- evt.guards.last().predicate + name + '='; --+ line.trim().regexReplaceAll('.*=', '').trim();
+						if (line.trim().regexReplaceAll('.*=', '').trim().size() = line.trim().regexReplaceAll('.*=', '').trim().regexReplaceAll('randint(.*,.*)', '').size()  ){
+							evt.guards.last().predicate <- evt.guards.last().predicate +line.trim().regexReplaceAll('.*=', '').trim().PyToB();
+						}
+						else{
+							evt.guards.last().predicate <- evt.guards.last().predicate +line.trim().regexReplaceAll('.*=', '').trim().regexReplaceAll('randint\\(.*,.*\\)', ' rnd'+(PARcounter-1).toString()+' ').PyToB();
+						}
+						
+					}
+				}
+			}
+			for (par in evt.parameters) {
+				if (par.name.startsWith('par_') ){
+					evt.actions <- thisModule.ACT( par.name.substring(5, par.name.size() ), ACTcounter );
+					ACTcounter <- ACTcounter+1;
+				}
+			}
+		}
+		-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		-- --------------------------------Find the guard of t------------------------------------
+		if (not(t.guard.oclIsUndefined())){
+			if (thisModule.resolveTemp(t.guard,'grd').oclIsTypeOf(eventbcore!Guard)){
+				evt.guards <- thisModule.resolveTemp(t.guard,'grd');
+				thisModule.resolveTemp(t.guard,'grd').name <- 'grd' + GRDcounter.toString();
+				GRDcounter <- GRDcounter+1;
+			}
+		}
+		-- --------------------------------------------------------------------------
+		
+		-- --------------------------------Decide if the transition will send a signal------------
+		if (not(t.effect.oclIsUndefined())){
+			for (nod in t.effect.node){
+				if (nod.oclType()=UML!CallBehaviorAction){
+					if	(nod.behavior.node -> exists(i | i.oclIsTypeOf(UML!SendSignalAction))){
+						evt.comment <- 'Refines ' + 'Sending_'+nod.behavior.node -> any(i | i.oclIsTypeOf(UML!SendSignalAction)).signal.name;
+					}
+					if (thisModule.resolveTemp(nod,'act').oclIsTypeOf(eventbcore!Action)){
+						evt.actions <- thisModule.resolveTemp(nod,'act');
+						for (att in nod.behavior.node -> any(i | i.oclIsTypeOf(UML!SendSignalAction)).signal.ownedAttribute ){
+							thisModule.resolveTemp(nod,'act').action <- thisModule.resolveTemp(nod,'act').action + nod.behavior.node -> any(i | i.oclIsTypeOf(UML!SendSignalAction)).signal.name+'_'+att.name + '|->';
+			 				thisModule.resolveTemp(nod,'act').name <- nod.behavior.node -> any(i | i.oclIsTypeOf(UML!SendSignalAction)).argument -> any(i | i.name=att.name).incoming.at(1).source.name; -- determine the value which is sent for the current 'att'.
+							if ( evt.parameters.includes('par_'+ thisModule.resolveTemp(nod,'act').name.trim())  ){
+								thisModule.resolveTemp(nod,'act').action <- thisModule.resolveTemp(nod,'act').action+'par_'+thisModule.resolveTemp(nod,'act').name+',';
+				
+							}else{
+								thisModule.resolveTemp(nod,'act').action <- thisModule.resolveTemp(nod,'act').action+thisModule.resolveTemp(nod,'act').name+',';
+							}
+						}
+						thisModule.resolveTemp(nod,'act').action <- thisModule.resolveTemp(nod,'act').action.substring(1,thisModule.resolveTemp(nod,'act').action.size()-1);
+						thisModule.resolveTemp(nod,'act').action <- thisModule.resolveTemp(nod,'act').action + '}';
+						thisModule.resolveTemp(nod,'act').name <- 'act' + ACTcounter.toString();
+						evt.comment <- thisModule.resolveTemp(nod,'act').comment;
+						thisModule.resolveTemp(nod,'act').comment <- '';
+					}
+				}
+			}
+		}
+		-- --------------------------------------------------------------------------
+		GRDcounter <- 1;
+		ACTcounter <- 1;
+		PARcounter <- 1;
+	}
+}
+
+
+-- ###########################################
+
+rule grd2grd{
+	from
+		constraint: UML!Constraint (constraint.refImmediateComposite().oclIsTypeOf(UML!Transition) and    not(constraint.specification.body= Sequence {''} ) 
+		and constraint.refImmediateComposite().refImmediateComposite().refImmediateComposite()=thisModule.behaviour    )
+	to
+		grd: eventbcore!Guard(
+			predicate <- constraint.specification.body.at(1).PyToB() 
+			)
+}
+
+
+
+lazy rule ACT{
+	from
+		n : String,
+		counter:Integer
+	to
+		act: eventbcore!Action(
+			name <- 'act'+counter.toString(),
+			action <- n + ' := '+'par_'+n 
+			)
+	do{
+		--thisModule.ACT(t, 'act_'+line.trim().regexReplaceAll('=.*', '')).action <- line.trim().regexReplaceAll('=.*', '').trim()+' := '+'par_'+line.trim().regexReplaceAll('=.*', '').trim();
+		-- create an action an assign the parameter to the corresponding variable.
+		--
+	}
+}
+
+
+lazy rule PARIF{
+	from
+		n : String
+	to 
+		par: eventbcore!Parameter(
+			name <- n
+		)	
+}
+
+
+
+lazy rule PAR{
+	from
+		n : String
+	to 
+		par: eventbcore!Parameter(
+			name <- n
+		)	
+}
+
+
+
+lazy rule GRD{
+	from 
+		str : String
+	to
+		grd : eventbcore!Guard(
+			name <- str,
+			predicate <- ''
+		)
+}
+
+
+
+-- ###################### Create a machine to whcih all elements are assigned. #####################
+endpoint rule creatingMachineAndContext() {
+	using{
+		init : UML!Pseudostate='';
+		ACTcounter: Integer =1;
+	}
+
+	to
+		m : eventbcore!Machine (
+			name <-  'machine_' + thisModule.block
+			),
+		evt: eventbcore!Event(
+			name <- 'INITIALISATION',
+			actions <- act),
+		act: eventbcore!Action(
+			action <- thisModule.block + '_state  := ',  
+			name <- 'act'+ACTcounter.toString()
+			)
+		
+	do{
+		ACTcounter <- ACTcounter+1;
+		if (  thisModule.behaviour.region.at(1).subvertex -> exists(i | i.oclIsTypeOf(UML!Pseudostate) )  ){
+			init <- thisModule.behaviour.region.at(1).subvertex -> any(i | i.oclIsTypeOf(UML!Pseudostate));
+			if (thisModule.behaviour.region.at(1).transition -> exists(i | i.source=init) ){
+				act.action <- act.action + thisModule.behaviour.region.at(1).transition -> any(i | i.source=init).target.name;
+			}
+		}
+		for ( pro in thisModule.behaviour.refImmediateComposite().ownedAttribute -> select(i | i.isStatic=false  and (not i.oclIsTypeOf(UML!Port)))){
+			if (thisModule.resolveTemp(pro,'act').oclIsTypeOf(eventbcore!Action)){
+				thisModule.resolveTemp(pro,'act').name <- 'act' + ACTcounter.toString();
+				ACTcounter <- ACTcounter +1;
+				evt.actions <- thisModule.resolveTemp(pro,'act');
+			}
+		}
+		m.variables <- eventbcore!Variable.allInstances();
+		m.events <- eventbcore!Event.allInstances();
+		m.invariants <- eventbcore!Invariant.allInstances();
+	}
+}
+
+-- ###########################################
+
+

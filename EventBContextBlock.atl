@@ -1,0 +1,130 @@
+-- @nsURI UML=http://www.eclipse.org/uml2/5.0.0/UML
+-- @path eventbcore=/org.eventb.emf.core/model/eventbcore.ecore
+
+module EventBContextBlock;
+create OUT : eventbcore from IN : UML;
+
+helper def: block : String ='RBC';
+helper def : counter : Integer = 1;
+helper def: behaviour : UML!StateMachine = '';
+
+
+-- --------------------------------------------------------------------------------------------------------------------------------------------------
+-- ASM: 1) There is only one region.
+-- It gets the behaviour of the block and creates a set containing states of the block SMD by calling Rule 'SMD2Set'.
+entrypoint rule classifierBehavior(){
+	do{
+		for (e in UML!Class.allInstances()){
+			if (e.name=thisModule.block and e.oclIsTypeOf(UML!Class)){
+				thisModule.behaviour <- e.classifierBehavior;
+			}
+		}
+		if ( thisModule.behaviour.region.notEmpty() ){
+			for (region in thisModule.behaviour.region ) {
+				thisModule.SMD2Set(region);
+			}
+		}
+	}
+}
+
+-- ASM: 1) the region is not empty.
+-- Create the set of states.
+lazy rule SMD2Set{
+	from 
+		region : UML!region
+	to
+		set : eventbcore!CarrierSet(
+			name <- thisModule.block + '_States'
+			),
+		axiom : eventbcore!Axiom(
+			name <- 'axm' + thisModule.counter,
+			predicate <-'partition(' + set.name+',' 
+				)
+	do {
+		thisModule.counter <- thisModule.counter +1;
+		for(st in region.subvertex){
+			if (st.oclIsTypeOf(UML!State)){
+				axiom.predicate <- axiom.predicate + '{' + st.name + '}'+ ',';
+			}
+		}
+		axiom.predicate <- axiom.predicate.substring(1,axiom.predicate.size()-1);
+		axiom.predicate <- axiom.predicate +')';
+	}
+}
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------
+-- ASM: 1)The names of properties are unique among all properties of blocks.
+-- This creates the constants of the block.
+rule property2constants{
+	from 
+		property : UML!Property (property.isReadOnly=true and  property.refImmediateComposite().name=thisModule.block)
+	to
+		constant : eventbcore! Constant (
+			name <- property.name
+			),	
+		axoim: eventbcore!Axiom(
+			predicate <- property.name +' : ',
+			name<- 'axm' + thisModule.counter
+			)
+	do{
+		thisModule.counter <- thisModule.counter +1;
+		if (property.type.name='Integer'){
+			axoim.predicate<-axoim.predicate+'INT ';
+		}
+		if (property.type.name='Boolean'){
+			axoim.predicate<-axoim.predicate+'BOOL ';
+		}
+	}
+		
+}
+-- ----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+-- ----------------------------------------------------------------------------------------------------------------------------------------------
+-- ASM: 1) The name of states are unique among all other SMDs
+-- This creates  a constant for each state.
+rule StateToConstants{
+	from 
+	 	state : UML!State (state.refImmediateComposite().refImmediateComposite()=thisModule.behaviour)
+	 to
+	 	constant : eventbcore!Constant(
+	 		name <- state.name)
+}
+-- -----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+endpoint rule creatingcontext() {
+
+	to
+		c : eventbcore!Context (
+			name <-  thisModule.block + 'Context'
+			)
+	do{
+		for(e in eventbcore!Constant.allInstances()){
+			c.constants <- e;
+		}
+		for(e in eventbcore!CarrierSet.allInstances()){
+			c.sets <- e;
+		}
+		for (ax in eventbcore!Axiom.allInstances() ){
+		c.axioms <- ax;
+		}
+	}
+
+
+}

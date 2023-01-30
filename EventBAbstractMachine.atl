@@ -1,0 +1,319 @@
+-- @nsURI MM=http://www.eclipse.org/uml2/5.0.0/UML
+-- @path MM1=/org.eventb.emf.core/model/eventbcore.ecore
+
+module EventBAbstractMachine;
+create OUT : eventbcore from IN : UML;
+helper def: INVcounter: Integer=1;
+
+	
+helper def: order : Map(String, Sequence(String))= Map{ ('TraveledDistance',Sequence{'ModelingPurposeByBRK'} ), ('Measurement', Sequence{'TraveledDistance'}),
+	('BrakingActivation', Sequence{'Measurement','Empty','ModelingPurposeByRBC','EmergencyBrake'}),('BrakingTriggered', Sequence{'BrakingActivation'}),
+	('PositionReport', Sequence{'Measurement'}),('Empty',Sequence{'PositionReport'}),('ModelingPurposeByRBC',Sequence{'PositionReport'}),('EmergencyBrake',Sequence{'PositionReport'}),
+	('ModelingPurposeByBRK', Sequence{'BrakingActivation'})
+	};
+helper def: firstSignal: String='TraveledDistance';
+helper def: initActions: Sequence(eventbcore!Action)= ''.toSequence();
+
+entrypoint rule interactionPhases(){
+	to
+		var: eventbcore!Variable(
+			name <- 'phase'
+			),
+		inv: eventbcore!Invariant (
+			name <- 'inv'+thisModule.INVcounter.toString(),
+			predicate <- 'phase : Phases'
+			)
+	do{
+		thisModule.INVcounter <- thisModule.INVcounter+1;
+	}
+}
+
+
+unique lazy rule VarForSigUnderAttack{
+	from 
+		sig : UML!Signal
+	to
+		var2 : eventbcore!Variable(
+			name <- 'recv_message_' + sig.name
+			),
+		inv2 : eventbcore!Invariant(
+			name <- 'inv'+thisModule.INVcounter.toString(),
+			predicate <- var2.name + ':' + sig.name + '-->'+'INT'
+			),
+		actatt: eventbcore!Action(
+			action <- var2.name + '::' + sig.name + '-->'+'INT')
+	do{
+		thisModule.INVcounter <- thisModule.INVcounter+1;
+		thisModule.initActions <- thisModule.initActions.append(actatt);
+	}
+}
+
+lazy rule ActionForReceivingMessageUnderAtatck{
+	from
+		sig : UML!Signal,
+		counter: Integer
+	to
+		act : eventbcore!Action(
+			name <-  'act'+counter.toString(),
+			action <- ''
+			)
+	do{
+		act.action <- 'recv_message_' + sig.name + ':= {';
+		for (pro in sig.ownedAttribute) {
+			act.action <- act.action +  sig.name+'_'+pro.name+'|->'+'par_'+pro.name+',' ;
+		}
+		act.action <- act.action.substring(1, act.action.size()-1);
+		act.action <- act.action+'}';
+	}	
+}
+
+
+lazy rule creatingParameter{
+	from 
+		m : UML!Property
+	to
+		par: eventbcore!Parameter(
+			name <- 'par_'+m.name
+			)
+}
+
+lazy rule AttackGuard{
+	from
+		counter: Integer,
+		signal: String,
+		property: String
+	to
+		g1: eventbcore!Guard(
+			name <- 'grd'+counter.toString(),
+			predicate <-  '(attack=0 => ' + 'par_'+property + '= '+ 'message_' + signal + '('+signal+'_' + property+'))'
+			)
+	do{
+		g1.predicate <- g1.predicate + ' & ' + '(attack=1 =>'+'par_'+property +'=999)'+ ' & '+ 'par_' +property + ': INT';
+	}
+}
+
+lazy rule NoAttackGuard{
+	from
+		counter: Integer,
+		signal: String,
+		property: String
+	to
+		g : eventbcore!Guard(
+			name <- 'grd'+ counter.toString(),
+			predicate <- 'par_' + property + '= message_'+ signal+'('+signal+'_'+property+')')
+}
+
+--ASM: 1)All signals are used in a control loop.
+-- This will maps signals to two events modeling sending and receiving the signal while the signal does not have any property.
+
+rule EmptySignal2Event{
+	from 
+		sig : UML!Signal (sig.ownedAttribute.isEmpty())
+	using{
+		IsUnderAttack: Boolean= false;
+		fr : UML!CombinedFragment = '';
+		GRDcounter: Integer=1;
+		ACTcounter: Integer=1;
+	}
+	to
+		evt1 : eventbcore!Event(    -- Send the signal
+			name <- 'Sending_'+sig.name,
+			guards <- grd1,
+			actions <- act1
+			),
+		evt2 : eventbcore!Event(    -- receive the signal
+			name <-'Receiving_'+sig.name,
+			guards <- grd2,
+			actions <- act2
+			),
+		act1 : eventbcore!Action(   -- change the phase in event 'evt1'
+			name <- 'act'+ACTcounter.toString(),
+			action <- 'phase := s_'+  sig.name
+			),
+		act2 : eventbcore!Action(   -- change the phase in event 'evt2'
+			name <- 'act'+ACTcounter.toString(),
+			action <- 'phase := r_'+  sig.name
+			),
+		grd1: eventbcore!Guard(     -- check the phase of the interaction for event evt1
+			name <- 'grd'+GRDcounter.toString(),
+			predicate <- ''),
+		grd2: eventbcore!Guard(		-- check the phase of the interaction for event evt2
+			name <- 'grd'+GRDcounter.toString(),
+			predicate <- 'phase=s_' + sig.name )
+	do{
+		GRDcounter <- GRDcounter+1;
+		ACTcounter <- ACTcounter + 1;
+		for (signal in thisModule.order.get(sig.name) ){
+			grd1.predicate <- grd1.predicate + 'phase=' + 'r_'+signal + ' or ';
+		}
+			grd1.predicate <- grd1.predicate.substring(1,grd1.predicate.size()-3);
+	}
+}
+
+
+-- ASM: 1) If the signal is under attack then all usages of the signal must be inside of an alt fragment representing the type of attacks.
+-- This will maps signals to two events modeling sending and receiving the signal while the signal does have some properties.
+rule NonEmptySignal2Event{
+	from 
+		sig : UML!Signal (sig.ownedAttribute.notEmpty())
+	using{
+		IsUnderAttack: Boolean= false;  -- This shows if the signal is under attack or not
+		fr : UML!CombinedFragment = ''; -- The fragment which shows types of attacks over the signal.
+		GRDcounter1: Integer=1;
+		GRDcounter2: Integer=1;
+		ACTcounter1: Integer=1;
+		ACTcounter2: Integer=1;
+	}
+	to
+		evt1 : eventbcore!Event(    -- Send the signal
+			name <- 'Sending_'+sig.name,
+			guards <- grd1,
+			actions <- act1,
+			actions <- act3
+			),
+		evt2 : eventbcore!Event(    -- receive the signal
+			name <-'Receiving_'+sig.name,
+			guards <- grd2,
+			actions <- act2
+			),
+		act1 : eventbcore!Action(   -- change the phase in event 'evt1'
+			name <- 'act'+ACTcounter1.toString(),
+			action <- 'phase := s_'+  sig.name
+			),
+		act2 : eventbcore!Action(   -- change the phase in event 'evt2'
+			name <- 'act'+ACTcounter2.toString(),
+			action <- 'phase := r_'+  sig.name
+			),
+		grd1: eventbcore!Guard(     -- check the phase of the interaction for event evt1
+			name <- 'grd'+GRDcounter1.toString(),
+			predicate <- ''),
+		grd2: eventbcore!Guard(		-- check the phase of the interaction for event evt2
+			name <- 'grd'+GRDcounter2.toString(),
+			predicate <- 'phase=s_' + sig.name ),
+		var:  eventbcore!Variable(
+			name <- 'message_'+ sig.name
+			),
+		inv: eventbcore!Invariant(
+			name <- 'inv'+thisModule.INVcounter,
+			predicate <- 'message_'+ sig.name + ':' + sig.name + '--> INT' 
+			),
+		act4: eventbcore!Action( 
+			action <- 'message_'+ sig.name + '::' + sig.name + '--> INT'
+			),
+		act3: eventbcore!Action(   -- send the message from event 'evt1'
+			name <- 'act' + (ACTcounter1+1).toString(),
+			action <-   'message_'+ sig.name+ '::' + sig.name + '-->'+'INT' 
+			)
+	do{
+		GRDcounter1 <- GRDcounter1+1;
+		GRDcounter2 <- GRDcounter2+1;
+		ACTcounter1 <- ACTcounter1 + 2;
+		ACTcounter2 <- ACTcounter2 + 1;
+		thisModule.INVcounter <- thisModule.INVcounter+1;
+		for (signal in thisModule.order.get(sig.name) ){
+			grd1.predicate <- grd1.predicate + 'phase=' + 'r_'+signal + ' or ';
+		}
+			grd1.predicate <- grd1.predicate.substring(1,grd1.predicate.size()-3);
+	-- -----------------------------------------------------------------------------------		
+		-- find out if the the signal is under attack
+		for (mes in UML!Message.allInstances()){
+			if (mes.signature=sig){
+				if (mes.sendEvent.refImmediateComposite().refImmediateComposite().name='Attack'){
+					IsUnderAttack <- true;
+					fr <- mes.sendEvent.refImmediateComposite().refImmediateComposite();
+				}
+			}
+		}
+	-- ----------------------------------------------------------------------------------
+		-- receiving the signal by event 'evt2' and the effect of the attack on the properties of the signal.
+		for (pro in sig.ownedAttribute) {
+			evt2.parameters <- thisModule.creatingParameter(pro);
+			if (IsUnderAttack=false){
+				evt2.guards <- thisModule.NoAttackGuard(GRDcounter2, sig.name, pro.name);
+				GRDcounter2 <- GRDcounter2+1;
+			}else{
+				evt2.guards <- thisModule.AttackGuard(GRDcounter2, sig.name ,pro.name);
+				GRDcounter2 <- GRDcounter2+1;
+			}
+		}
+		if (IsUnderAttack=true){
+			thisModule.VarForSigUnderAttack(sig);
+			evt2.actions <- thisModule.ActionForReceivingMessageUnderAtatck(sig,ACTcounter2);
+			evt2.parameters <- thisModule.AttackPar('attack');
+			evt2.guards <- thisModule.TypeOfAttack(fr,GRDcounter2);
+		}		
+	}
+}
+
+
+
+lazy rule AttackPar{
+	from
+		str : String
+	to
+		att : eventbcore!Parameter(
+			name <- str)
+}
+
+
+
+lazy rule TypeOfAttack{
+	from
+		fr : UML!CombinedFragment,
+		counter: Integer
+	to
+		grd : eventbcore!Guard(
+			name <- 'grd'+counter.toString(),
+			predicate <- 'attack : {'
+			)
+	do{
+		for(op in fr.operand){
+			grd.predicate <- grd.predicate  + op.guard.specification.body.at(1).regexReplaceAll('.*attack.*==', '') + ',';
+		}
+		grd.predicate <- grd.predicate.substring(1, grd.predicate.size()-1 )  + '}';
+	}
+}
+
+
+endpoint rule creatingMachineAndContext() {
+	using{
+		ACTcounter : Integer=1;
+	}
+
+	to
+		m : eventbcore!Machine (
+			name <-  'SequenceDiagram'
+			),
+		evt: eventbcore!Event(
+			name <- 'INITIALSIATION',
+			actions <- act
+			),
+		act: eventbcore!Action(
+			action <- 'phase := r_' + thisModule.order.get(thisModule.firstSignal).at(1),
+			name <- 'act' + ACTcounter.toString()
+			)
+	do{	
+		ACTcounter <- ACTcounter+1;
+		for ( sig in UML!Signal.allInstances() -> select(i | i.ownedAttribute.notEmpty() )) {
+			if (  thisModule.resolveTemp(sig, 'act4').oclIsTypeOf(eventbcore!Action) ){
+				thisModule.resolveTemp(sig, 'act4').name <- 'act' + ACTcounter.toString();
+				evt.actions <- thisModule.resolveTemp(sig, 'act4');
+				ACTcounter <- ACTcounter+1;
+			}				
+		}
+		for (initact in thisModule.initActions){
+			initact.name <- 'act' + ACTcounter.toString();
+			ACTcounter <- ACTcounter+1;
+			evt.actions <- initact;
+		}
+		for(e in eventbcore!Variable.allInstances()){
+			m.variables <- e;
+		}
+		for(e in eventbcore!Event.allInstances()){
+			m.events <- e;
+		}
+		for (ax in eventbcore!Invariant.allInstances() ){
+		m.invariants <- ax;
+		}
+	}
+}
