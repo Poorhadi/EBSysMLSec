@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="Odometer_States" org.eventb.core.type="ℙ(Odometer_States)"/>
+<org.eventb.core.poIdentifier name="measuring" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poIdentifier name="waitingForENV" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poIdentifier name="atp" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poPredicate name="Odometer_Statet" org.eventb.core.predicate="partition(Odometer_States,{waitingForENV},{measuring},{atp})" org.eventb.core.source="/Railway2/OdometerContext.buc|org.eventb.core.contextFile#OdometerContext|org.eventb.core.axiom#_jsQwAUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poIdentifier name="BrakingActivation" org.eventb.core.type="ℙ(BrakingActivation)"/>
+<org.eventb.core.poIdentifier name="Phases" org.eventb.core.type="ℙ(Phases)"/>
+<org.eventb.core.poIdentifier name="PositionReport" org.eventb.core.type="ℙ(PositionReport)"/>
+<org.eventb.core.poIdentifier name="Measurement" org.eventb.core.type="ℙ(Measurement)"/>
+<org.eventb.core.poIdentifier name="TraveledDistance" org.eventb.core.type="ℙ(TraveledDistance)"/>
+<org.eventb.core.poIdentifier name="attcakstype" org.eventb.core.type="ℙ(attcakstype)"/>
+<org.eventb.core.poIdentifier name="r_ModelingPurposeByRBC" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_BrakingTriggered" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_EmergencyBrake" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_BrakingActivation" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="PositionReport_minSafe" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="s_PositionReport" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="No" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="s_ModelingPurposeByBRK" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_ModelingPurposeByBRK" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="Measurement_minSafe" org.eventb.core.type="Measurement"/>
+<org.eventb.core.poIdentifier name="s_Measurement" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_TraveledDistance" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_EmergencyBrake" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="NoAttack" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="PositionReport_mac" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="s_TraveledDistance" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="PositionReport_maxSafe" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="Less" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="s_BrakingActivation" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_BrakingTriggered" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="Measurement_maxSafe" org.eventb.core.type="Measurement"/>
+<org.eventb.core.poIdentifier name="BrakingActivation_activation" org.eventb.core.type="BrakingActivation"/>
+<org.eventb.core.poIdentifier name="s_ModelingPurposeByRBC" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_PositionReport" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="TraveledDistance_distance" org.eventb.core.type="TraveledDistance"/>
+<org.eventb.core.poIdentifier name="r_Empty" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_Empty" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_Measurement" org.eventb.core.type="Phases"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatioo" org.eventb.core.predicate="partition(Phases,{r_PositionReport},{s_PositionReport},{r_Measurement},{s_Measurement},{r_EmergencyBrake},{s_EmergencyBrake},{r_ModelingPurposeByRBC},{s_ModelingPurposeByRBC},{r_TraveledDistance},{s_TraveledDistance},{r_BrakingActivation},{s_BrakingActivation},{r_Empty},{s_Empty},{r_BrakingTriggered},{s_BrakingTriggered},{r_ModelingPurposeByBRK},{s_ModelingPurposeByBRK})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH6oY0rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatiop" org.eventb.core.predicate="partition(PositionReport,{PositionReport_minSafe},{PositionReport_maxSafe},{PositionReport_mac})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatioq" org.eventb.core.predicate="partition(Measurement,{Measurement_minSafe},{Measurement_maxSafe})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PcUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatior" org.eventb.core.predicate="partition(TraveledDistance,{TraveledDistance_distance})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PckrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatios" org.eventb.core.predicate="partition(BrakingActivation,{BrakingActivation_activation})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH72gErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatiot" org.eventb.core.predicate="partition(attcakstype,{NoAttack},{Less},{No})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PckrtEe2dfPVZTbUaQV"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="message_BrakingActivation" org.eventb.core.type="ℙ(BrakingActivation×ℤ)"/>
+<org.eventb.core.poIdentifier name="message_TraveledDistance" org.eventb.core.type="ℙ(TraveledDistance×ℤ)"/>
+<org.eventb.core.poIdentifier name="Odometer_state" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poIdentifier name="recv_message_PositionReport" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="message_PositionReport" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="Error" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="minSafeFront" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="phase" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="message_Measurement" org.eventb.core.type="ℙ(Measurement×ℤ)"/>
+<org.eventb.core.poIdentifier name="maxSafeFront" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporu" org.eventb.core.predicate="phase∈Phases" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqE88ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporv" org.eventb.core.predicate="message_PositionReport∈PositionReport → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqFkAErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporw" org.eventb.core.predicate="message_Measurement∈Measurement → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqGLEErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporx" org.eventb.core.predicate="message_TraveledDistance∈TraveledDistance → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqGLEUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionRepory" org.eventb.core.predicate="message_BrakingActivation∈BrakingActivation → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqGyIErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporz" org.eventb.core.predicate="recv_message_PositionReport∈PositionReport → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqHZMErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporu" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="Odometer_state'" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poIdentifier name="distance" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="par_minSafeFront" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="rnd1" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="par_distance" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="rnd2" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="maxSafeFront'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="minSafeFront'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="par_maxSafeFront" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporu" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporu" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=s_TraveledDistance" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqbiQErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="par_distance=message_TraveledDistance(TraveledDistance_distance)" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqbiQUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="Odometer_state=waitingForENV" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-w5tUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="par_distance=distance" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-w5tkrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="par_minSafeFront=distance − rnd1" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-xgwErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="rnd1∈0 ‥ Error" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-xgwUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="par_maxSafeFront=distance+rnd2" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-xgwkrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="rnd2∈0 ‥ Error" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-wSoUrtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-yH0ErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="measuring_To_atp/act2/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#EVTALLHYPrecv_message_PositionReporv"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{Measurement_minSafe ↦ minSafeFront,Measurement_maxSafe ↦ maxSafeFront}∈Measurement → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqWpwErtEe2dfPVZTbUaQQ|org.eventb.core.action#_RqXQ0UrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqWpwErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqWpwErtEe2dfPVZTbUaQQ|org.eventb.core.action#_RqXQ0UrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-yu4ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poSequent#measuring_To_atp\/act2\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporv" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="Odometer_state'" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poIdentifier name="message_Measurement'" org.eventb.core.type="ℙ(Measurement×ℤ)"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporv" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporv" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=r_TraveledDistance" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-yu4ErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqWpwUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="Odometer_state=measuring" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-yu4ErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-yu4UrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporw" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="Odometer_state'" org.eventb.core.type="Odometer_States"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporw" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporw" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="Odometer_state=atp" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.event#_k-z9AErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_k-z9AUrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporx" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="message_BrakingActivation'" org.eventb.core.type="ℙ(BrakingActivation×ℤ)"/>
+<org.eventb.core.poIdentifier name="Odometer_state'" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.poIdentifier name="Error'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="message_Measurement'" org.eventb.core.type="ℙ(Measurement×ℤ)"/>
+<org.eventb.core.poIdentifier name="message_PositionReport'" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="maxSafeFront'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="minSafeFront'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="recv_message_PositionReport'" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="message_TraveledDistance'" org.eventb.core.type="ℙ(TraveledDistance×ℤ)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporx" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporx" org.eventb.core.poStamp="0"/>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Railway2/OdometerMachine.bpo|org.eventb.core.poFile#OdometerMachine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="Odometer_state∈Odometer_States" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.invariant#_k-vrkErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="Error∈ℤ" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.invariant#_k-vrkUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="minSafeFront∈ℤ" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.invariant#_k-vrkkrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="maxSafeFront∈ℤ" org.eventb.core.source="/Railway2/OdometerMachine.bum|org.eventb.core.machineFile#OdometerMachine|org.eventb.core.invariant#_k-wSoErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

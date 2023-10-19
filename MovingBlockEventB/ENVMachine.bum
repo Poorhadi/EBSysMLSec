@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.variable name="_f9JZ8ErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="ENV_state"/>
+    <org.eventb.core.variable name="_f9JZ8UrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="realPosition"/>
+    <org.eventb.core.invariant name="_f9JZ8krtEe2dfPVZTbUaQQ" org.eventb.core.label="inv1" org.eventb.core.predicate="ENV_state ∈ ENV_States"/>
+    <org.eventb.core.invariant name="_f9JZ80rtEe2dfPVZTbUaQQ" org.eventb.core.label="inv2" org.eventb.core.predicate="realPosition∈ℤ "/>
+    <org.eventb.core.event name="_f9KBAErtEe2dfPVZTbUaQQ" org.eventb.core.comment="Refines Receiving_BrakingTriggered" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="waitingForBRK_To_Steady">
+        <org.eventb.core.guard name="_RqQjIErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_BrakingTriggered"/>
+        <org.eventb.core.action name="_RqQjIUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_BrakingTriggered" org.eventb.core.label="act1"/>
+        <org.eventb.core.parameter name="_f9KBAUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_realPosition"/>
+        <org.eventb.core.guard name="_f9KBAkrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="ENV_state = waitingForBRK"/>
+        <org.eventb.core.guard name="_f9KoEErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="par_realPosition=realPosition+brakeLine"/>
+        <org.eventb.core.action name="_f9KoEUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="ENV_state ≔ Steady" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_f9KoEkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="realPosition ≔ par_realPosition" org.eventb.core.label="act3"/>
+        <org.eventb.core.refinesEvent name="_f9KoEkrtEe2dfPVZTbUaQR" org.eventb.core.target="Receiving_BrakingTriggered"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_f9KoE0rtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="waitingForBRK_To_TrainProgress">
+        <org.eventb.core.guard name="_f9LPIErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="ENV_state = waitingForBRK"/>
+        <org.eventb.core.action name="_f9LPIUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="ENV_state ≔ TrainProgress" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_f9LPIkrtEe2dfPVZTbUaQQ" org.eventb.core.comment="Refines Sending_TraveledDistance" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="TrainProgress_To_waitingForBRK">
+        <org.eventb.core.guard name="_RqaUIErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_ModelingPurposeByBRK "/>
+        <org.eventb.core.action name="_RqaUIUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_TraveledDistance" org.eventb.core.label="act1"/>
+        <org.eventb.core.parameter name="_f9LPI0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="d"/>
+        <org.eventb.core.parameter name="_f9L2MErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="rnd1"/>
+        <org.eventb.core.parameter name="_f9L2MUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_realPosition"/>
+        <org.eventb.core.guard name="_f9L2MkrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="ENV_state = TrainProgress"/>
+        <org.eventb.core.guard name="_f9NEUUrtEe2dfPVZTbUaQS" org.eventb.core.label="grd6" org.eventb.core.predicate="rnd1∈ 0‥d_max "/>
+        <org.eventb.core.guard name="_f9L2M0rtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="d= rnd1 "/>
+        <org.eventb.core.guard name="_f9MdQUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd5" org.eventb.core.predicate="par_realPosition=realPosition+d"/>
+        <org.eventb.core.action name="_f9MdQkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="ENV_state ≔ waitingForBRK" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_f9NEUErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="realPosition ≔ par_realPosition" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_f9NEUUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_TraveledDistance≔{TraveledDistance_distance↦d}" org.eventb.core.comment="" org.eventb.core.label="act4"/>
+        <org.eventb.core.refinesEvent name="_f9NEUUrtEe2dfPVZTbUaQR" org.eventb.core.target="Sending_TraveledDistance"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_f9NEUkrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_RqelkErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqelkUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_PositionReport:∈PositionReport→ ℤ" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_RqfMoErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_Measurement:∈Measurement→ ℤ" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_RqfMoUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_TraveledDistance:∈TraveledDistance→ ℤ" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="_RqfzsErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_BrakingActivation:∈BrakingActivation→ ℤ" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="_RqfzsUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="recv_message_PositionReport:∈PositionReport→ℤ" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="_f9NrYErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="ENV_state  ≔ TrainProgress" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="_f9NrYUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="realPosition≔0" org.eventb.core.label="act8"/>
+    </org.eventb.core.event>
+    <org.eventb.core.refinesMachine name="_f9NEUkrtEe2dfPVZTbUaQR" org.eventb.core.target="AbstractMachine"/>
+    <org.eventb.core.seesContext name="_f9NEUkrtEe2dfPVZTbUaQS" org.eventb.core.target="ENVContext"/>
+    <org.eventb.core.seesContext name="_f9NEUkrtEe2dfPVZTbUaQT" org.eventb.core.target="MainContext"/>
+    <org.eventb.core.variable name="_f9NEUkrtEe2dfPVZTbUaQU" org.eventb.core.identifier="phase"/>
+    <org.eventb.core.variable name="_f9NEUkrtEe2dfPVZTbUaQV" org.eventb.core.identifier="message_TraveledDistance"/>
+    <org.eventb.core.variable name="_f9NEUkrtEe2dfPVZTbUaQW" org.eventb.core.identifier="message_PositionReport"/>
+    <org.eventb.core.variable name="_f9NEUkrtEe2dfPVZTbUaQX" org.eventb.core.identifier="message_Measurement"/>
+    <org.eventb.core.variable name="_f9NEUkrtEe2dfPVZTbUaQY" org.eventb.core.identifier="message_BrakingActivation"/>
+    <org.eventb.core.variable name="_f9NEUkrtEe2dfPVZTbUaQZ" org.eventb.core.identifier="recv_message_PositionReport"/>
+</org.eventb.core.machineFile>

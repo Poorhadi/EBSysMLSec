@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="_eCj8kErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="ENV_States"/>
+    <org.eventb.core.constant name="_eCj8kUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="brakeLine"/>
+    <org.eventb.core.constant name="_eCj8kkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="d_max"/>
+    <org.eventb.core.constant name="_eCj8k0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="waitingForBRK"/>
+    <org.eventb.core.constant name="_eCkjoErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Steady"/>
+    <org.eventb.core.constant name="_eCkjoUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="TrainProgress"/>
+    <org.eventb.core.axiom name="_eCkjokrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(ENV_States,{waitingForBRK},{Steady},{TrainProgress})"/>
+    <org.eventb.core.axiom name="_eCkjo0rtEe2dfPVZTbUaQQ" org.eventb.core.label="axm2" org.eventb.core.predicate="brakeLine ∈ ℤ "/>
+    <org.eventb.core.axiom name="_eClKsErtEe2dfPVZTbUaQQ" org.eventb.core.label="axm3" org.eventb.core.predicate="d_max ∈ ℤ "/>
+</org.eventb.core.contextFile>

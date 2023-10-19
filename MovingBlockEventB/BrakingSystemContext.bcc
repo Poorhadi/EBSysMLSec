@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(BrakingSystem_States,{waitingForATP},{activated},{disengaged},{receive})" org.eventb.core.source="/Railway2/BrakingSystemContext.buc|org.eventb.core.contextFile#BrakingSystemContext|org.eventb.core.axiom#_ZDn9YUrtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="waitingForATP" org.eventb.core.source="/Railway2/BrakingSystemContext.buc|org.eventb.core.contextFile#BrakingSystemContext|org.eventb.core.constant#_ZDnWUUrtEe2dfPVZTbUaQQ" org.eventb.core.type="BrakingSystem_States"/>
+<org.eventb.core.scCarrierSet name="BrakingSystem_States" org.eventb.core.source="/Railway2/BrakingSystemContext.buc|org.eventb.core.contextFile#BrakingSystemContext|org.eventb.core.carrierSet#_ZDnWUErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℙ(BrakingSystem_States)"/>
+<org.eventb.core.scConstant name="receive" org.eventb.core.source="/Railway2/BrakingSystemContext.buc|org.eventb.core.contextFile#BrakingSystemContext|org.eventb.core.constant#_ZDn9YErtEe2dfPVZTbUaQQ" org.eventb.core.type="BrakingSystem_States"/>
+<org.eventb.core.scConstant name="activated" org.eventb.core.source="/Railway2/BrakingSystemContext.buc|org.eventb.core.contextFile#BrakingSystemContext|org.eventb.core.constant#_ZDnWUkrtEe2dfPVZTbUaQQ" org.eventb.core.type="BrakingSystem_States"/>
+<org.eventb.core.scConstant name="disengaged" org.eventb.core.source="/Railway2/BrakingSystemContext.buc|org.eventb.core.contextFile#BrakingSystemContext|org.eventb.core.constant#_ZDnWU0rtEe2dfPVZTbUaQQ" org.eventb.core.type="BrakingSystem_States"/>
+</org.eventb.core.scContextFile>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(RBC_States,{supervising},{handlePositionReport},{emergency},{trainMoving})" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHGfMErtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="EOA∈ℤ" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHGfMUrtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name=")" org.eventb.core.label="axm3" org.eventb.core.predicate="danger∈ℤ" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHGfMkrtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="*" org.eventb.core.label="axm4" org.eventb.core.predicate="key∈ℤ" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHHGQErtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="handlePositionReport" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHF4IkrtEe2dfPVZTbUaQQ" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.scCarrierSet name="RBC_States" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.carrierSet#_nHFREErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℙ(RBC_States)"/>
+<org.eventb.core.scConstant name="emergency" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHF4I0rtEe2dfPVZTbUaQQ" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.scConstant name="EOA" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHFREUrtEe2dfPVZTbUaQQ" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scConstant name="supervising" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHF4IUrtEe2dfPVZTbUaQQ" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.scConstant name="danger" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHFREkrtEe2dfPVZTbUaQQ" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scConstant name="trainMoving" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHF4JErtEe2dfPVZTbUaQQ" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.scConstant name="key" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.constant#_nHF4IErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>

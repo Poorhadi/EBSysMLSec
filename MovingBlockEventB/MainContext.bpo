@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poIdentifier name="BrakingActivation" org.eventb.core.type="ℙ(BrakingActivation)"/>
+<org.eventb.core.poIdentifier name="Phases" org.eventb.core.type="ℙ(Phases)"/>
+<org.eventb.core.poIdentifier name="PositionReport" org.eventb.core.type="ℙ(PositionReport)"/>
+<org.eventb.core.poIdentifier name="Measurement" org.eventb.core.type="ℙ(Measurement)"/>
+<org.eventb.core.poIdentifier name="TraveledDistance" org.eventb.core.type="ℙ(TraveledDistance)"/>
+<org.eventb.core.poIdentifier name="attcakstype" org.eventb.core.type="ℙ(attcakstype)"/>
+<org.eventb.core.poIdentifier name="r_ModelingPurposeByRBC" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_BrakingTriggered" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_EmergencyBrake" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_BrakingActivation" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="PositionReport_minSafe" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="s_PositionReport" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="No" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="s_ModelingPurposeByBRK" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_ModelingPurposeByBRK" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="Measurement_minSafe" org.eventb.core.type="Measurement"/>
+<org.eventb.core.poIdentifier name="s_Measurement" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_TraveledDistance" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_EmergencyBrake" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="NoAttack" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="PositionReport_mac" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="s_TraveledDistance" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="PositionReport_maxSafe" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="Less" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="s_BrakingActivation" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_BrakingTriggered" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="Measurement_maxSafe" org.eventb.core.type="Measurement"/>
+<org.eventb.core.poIdentifier name="BrakingActivation_activation" org.eventb.core.type="BrakingActivation"/>
+<org.eventb.core.poIdentifier name="s_ModelingPurposeByRBC" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_PositionReport" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="TraveledDistance_distance" org.eventb.core.type="TraveledDistance"/>
+<org.eventb.core.poIdentifier name="r_Empty" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_Empty" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_Measurement" org.eventb.core.type="Phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Railway2/MainContext.bpo|org.eventb.core.poFile#MainContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(Phases,{r_PositionReport},{s_PositionReport},{r_Measurement},{s_Measurement},{r_EmergencyBrake},{s_EmergencyBrake},{r_ModelingPurposeByRBC},{s_ModelingPurposeByRBC},{r_TraveledDistance},{s_TraveledDistance},{r_BrakingActivation},{s_BrakingActivation},{r_Empty},{s_Empty},{r_BrakingTriggered},{s_BrakingTriggered},{r_ModelingPurposeByBRK},{s_ModelingPurposeByBRK})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH6oY0rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="partition(PositionReport,{PositionReport_minSafe},{PositionReport_maxSafe},{PositionReport_mac})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="partition(Measurement,{Measurement_minSafe},{Measurement_maxSafe})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PcUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="partition(TraveledDistance,{TraveledDistance_distance})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PckrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="partition(BrakingActivation,{BrakingActivation_activation})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH72gErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="partition(attcakstype,{NoAttack},{Less},{No})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PckrtEe2dfPVZTbUaQV"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

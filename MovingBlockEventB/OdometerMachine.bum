@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.variable name="_k-vEgErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Odometer_state"/>
+    <org.eventb.core.variable name="_k-vEgUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Error"/>
+    <org.eventb.core.variable name="_k-vEgkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="minSafeFront"/>
+    <org.eventb.core.variable name="_k-vEg0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="maxSafeFront"/>
+    <org.eventb.core.invariant name="_k-vrkErtEe2dfPVZTbUaQQ" org.eventb.core.label="inv1" org.eventb.core.predicate="Odometer_state ∈ Odometer_States"/>
+    <org.eventb.core.invariant name="_k-vrkUrtEe2dfPVZTbUaQQ" org.eventb.core.label="inv2" org.eventb.core.predicate="Error∈ℤ "/>
+    <org.eventb.core.invariant name="_k-vrkkrtEe2dfPVZTbUaQQ" org.eventb.core.label="inv3" org.eventb.core.predicate="minSafeFront∈ℤ "/>
+    <org.eventb.core.invariant name="_k-wSoErtEe2dfPVZTbUaQQ" org.eventb.core.label="inv4" org.eventb.core.predicate="maxSafeFront∈ℤ "/>
+    <org.eventb.core.event name="_k-wSoUrtEe2dfPVZTbUaQQ" org.eventb.core.comment="Refines Receiving_TraveledDistance" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="waitingForENV_To_measuring">
+        <org.eventb.core.parameter name="_Rqa7MkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_distance"/>
+        <org.eventb.core.guard name="_RqbiQErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd7" org.eventb.core.predicate="phase=s_TraveledDistance"/>
+        <org.eventb.core.guard name="_RqbiQUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd8" org.eventb.core.predicate="par_distance= message_TraveledDistance(TraveledDistance_distance)"/>
+        <org.eventb.core.action name="_RqbiQkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_TraveledDistance" org.eventb.core.label="act4"/>
+        <org.eventb.core.parameter name="_k-w5sErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="distance"/>
+        <org.eventb.core.parameter name="_k-w5sUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_minSafeFront"/>
+        <org.eventb.core.parameter name="_k-w5skrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="rnd1"/>
+        <org.eventb.core.parameter name="_k-w5s0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_maxSafeFront"/>
+        <org.eventb.core.parameter name="_k-w5tErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="rnd2"/>
+        <org.eventb.core.guard name="_k-w5tUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="Odometer_state = waitingForENV"/>
+        <org.eventb.core.guard name="_k-w5tkrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="par_distance = distance "/>
+        <org.eventb.core.guard name="_k-xgwErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="par_minSafeFront=distance −  rnd1 "/>
+        <org.eventb.core.guard name="_k-xgwUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd4" org.eventb.core.predicate="rnd1∈ 0‥Error "/>
+        <org.eventb.core.guard name="_k-xgwkrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd5" org.eventb.core.predicate="par_maxSafeFront=distance+ rnd2 "/>
+        <org.eventb.core.guard name="_k-yH0ErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd6" org.eventb.core.predicate="rnd2∈ 0‥Error "/>
+        <org.eventb.core.action name="_k-yH0UrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="Odometer_state ≔ measuring" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_k-yH0krtEe2dfPVZTbUaQQ" org.eventb.core.assignment="minSafeFront ≔ par_minSafeFront" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_k-yH00rtEe2dfPVZTbUaQQ" org.eventb.core.assignment="maxSafeFront ≔ par_maxSafeFront" org.eventb.core.label="act3"/>
+        <org.eventb.core.refinesEvent name="_k-yH0krtEe2dfPVZTbUaQR" org.eventb.core.target="Receiving_TraveledDistance"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_k-yu4ErtEe2dfPVZTbUaQQ" org.eventb.core.comment="Refines Sending_Measurement" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="measuring_To_atp">
+        <org.eventb.core.guard name="_RqWpwUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_TraveledDistance "/>
+        <org.eventb.core.action name="_RqXQ0ErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_Measurement" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="_k-yu4UrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="Odometer_state = measuring"/>
+        <org.eventb.core.action name="_k-zV8ErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="Odometer_state ≔ atp" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_k-zV8UrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_Measurement≔{Measurement_minSafe↦minSafeFront,Measurement_maxSafe↦maxSafeFront}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+        <org.eventb.core.refinesEvent name="_k-zV8UrtEe2dfPVZTbUaQR" org.eventb.core.target="Sending_Measurement"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_k-z9AErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="atp_To_waitingForENV">
+        <org.eventb.core.guard name="_k-z9AUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="Odometer_state = atp"/>
+        <org.eventb.core.action name="_k-z9AkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="Odometer_state ≔ waitingForENV" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_k-z9A0rtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_RqelkErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqelkUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_PositionReport:∈PositionReport→ ℤ" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_RqfMoErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_Measurement:∈Measurement→ ℤ" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_RqfMoUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_TraveledDistance:∈TraveledDistance→ ℤ" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="_RqfzsErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_BrakingActivation:∈BrakingActivation→ ℤ" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="_RqfzsUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="recv_message_PositionReport:∈PositionReport→ℤ" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="_k-z9BErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="Odometer_state  ≔ waitingForENV" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="_k-0kEErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="Error≔1" org.eventb.core.label="act8"/>
+        <org.eventb.core.action name="_k-0kEUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="minSafeFront≔0" org.eventb.core.label="act9"/>
+        <org.eventb.core.action name="_k-0kEkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="maxSafeFront≔0" org.eventb.core.label="act10"/>
+    </org.eventb.core.event>
+    <org.eventb.core.refinesMachine name="_k-z9AErtEe2dfPVZTbUaQR" org.eventb.core.target="AbstractMachine"/>
+    <org.eventb.core.seesContext name="_k-z9AErtEe2dfPVZTbUaQS" org.eventb.core.target="OdometerContext"/>
+    <org.eventb.core.seesContext name="_k-z9AErtEe2dfPVZTbUaQT" org.eventb.core.target="MainContext"/>
+    <org.eventb.core.variable name="_k-z9AErtEe2dfPVZTbUaQU" org.eventb.core.identifier="phase"/>
+    <org.eventb.core.variable name="_k-z9AErtEe2dfPVZTbUaQV" org.eventb.core.identifier="message_PositionReport"/>
+    <org.eventb.core.variable name="_k-z9AErtEe2dfPVZTbUaQW" org.eventb.core.identifier="message_Measurement"/>
+    <org.eventb.core.variable name="_k-z9AErtEe2dfPVZTbUaQX" org.eventb.core.identifier="message_TraveledDistance"/>
+    <org.eventb.core.variable name="_k-z9AErtEe2dfPVZTbUaQY" org.eventb.core.identifier="message_BrakingActivation"/>
+    <org.eventb.core.variable name="_k-z9AErtEe2dfPVZTbUaQZ" org.eventb.core.identifier="recv_message_PositionReport"/>
+</org.eventb.core.machineFile>

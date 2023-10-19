@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.carrierSet name="_jsPh4ErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Odometer_States"/>
+    <org.eventb.core.constant name="_jsQI8ErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="waitingForENV"/>
+    <org.eventb.core.constant name="_jsQI8UrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="measuring"/>
+    <org.eventb.core.constant name="_jsQwAErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="atp"/>
+    <org.eventb.core.axiom name="_jsQwAUrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(Odometer_States,{waitingForENV},{measuring},{atp})"/>
+</org.eventb.core.contextFile>

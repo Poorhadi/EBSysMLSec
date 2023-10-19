@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="_nHFREErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="RBC_States"/>
+    <org.eventb.core.constant name="_nHFREUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="EOA"/>
+    <org.eventb.core.constant name="_nHFREkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="danger"/>
+    <org.eventb.core.constant name="_nHF4IErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="key"/>
+    <org.eventb.core.constant name="_nHF4IUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="supervising"/>
+    <org.eventb.core.constant name="_nHF4IkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="handlePositionReport"/>
+    <org.eventb.core.constant name="_nHF4I0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="emergency"/>
+    <org.eventb.core.constant name="_nHF4JErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="trainMoving"/>
+    <org.eventb.core.axiom name="_nHGfMErtEe2dfPVZTbUaQQ" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(RBC_States,{supervising},{handlePositionReport},{emergency},{trainMoving})"/>
+    <org.eventb.core.axiom name="_nHGfMUrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm2" org.eventb.core.predicate="EOA ∈ ℤ "/>
+    <org.eventb.core.axiom name="_nHGfMkrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm3" org.eventb.core.predicate="danger ∈ ℤ "/>
+    <org.eventb.core.axiom name="_nHHGQErtEe2dfPVZTbUaQQ" org.eventb.core.label="axm4" org.eventb.core.predicate="key ∈ ℤ "/>
+</org.eventb.core.contextFile>

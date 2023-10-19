@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(ENV_States,{waitingForBRK},{Steady},{TrainProgress})" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.axiom#_eCkjokrtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="brakeLine∈ℤ" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.axiom#_eCkjo0rtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name=")" org.eventb.core.label="axm3" org.eventb.core.predicate="d_max∈ℤ" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.axiom#_eClKsErtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="Steady" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.constant#_eCkjoErtEe2dfPVZTbUaQQ" org.eventb.core.type="ENV_States"/>
+<org.eventb.core.scConstant name="brakeLine" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.constant#_eCj8kUrtEe2dfPVZTbUaQQ" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scConstant name="TrainProgress" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.constant#_eCkjoUrtEe2dfPVZTbUaQQ" org.eventb.core.type="ENV_States"/>
+<org.eventb.core.scConstant name="waitingForBRK" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.constant#_eCj8k0rtEe2dfPVZTbUaQQ" org.eventb.core.type="ENV_States"/>
+<org.eventb.core.scCarrierSet name="ENV_States" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.carrierSet#_eCj8kErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℙ(ENV_States)"/>
+<org.eventb.core.scConstant name="d_max" org.eventb.core.source="/Railway2/ENVContext.buc|org.eventb.core.contextFile#ENVContext|org.eventb.core.constant#_eCj8kkrtEe2dfPVZTbUaQQ" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>

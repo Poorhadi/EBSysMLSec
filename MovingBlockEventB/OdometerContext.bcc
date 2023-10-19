@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(Odometer_States,{waitingForENV},{measuring},{atp})" org.eventb.core.source="/Railway2/OdometerContext.buc|org.eventb.core.contextFile#OdometerContext|org.eventb.core.axiom#_jsQwAUrtEe2dfPVZTbUaQQ" org.eventb.core.theorem="false"/>
+<org.eventb.core.scCarrierSet name="Odometer_States" org.eventb.core.source="/Railway2/OdometerContext.buc|org.eventb.core.contextFile#OdometerContext|org.eventb.core.carrierSet#_jsPh4ErtEe2dfPVZTbUaQQ" org.eventb.core.type="ℙ(Odometer_States)"/>
+<org.eventb.core.scConstant name="measuring" org.eventb.core.source="/Railway2/OdometerContext.buc|org.eventb.core.contextFile#OdometerContext|org.eventb.core.constant#_jsQI8UrtEe2dfPVZTbUaQQ" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.scConstant name="waitingForENV" org.eventb.core.source="/Railway2/OdometerContext.buc|org.eventb.core.contextFile#OdometerContext|org.eventb.core.constant#_jsQI8ErtEe2dfPVZTbUaQQ" org.eventb.core.type="Odometer_States"/>
+<org.eventb.core.scConstant name="atp" org.eventb.core.source="/Railway2/OdometerContext.buc|org.eventb.core.contextFile#OdometerContext|org.eventb.core.constant#_jsQwAErtEe2dfPVZTbUaQQ" org.eventb.core.type="Odometer_States"/>
+</org.eventb.core.scContextFile>

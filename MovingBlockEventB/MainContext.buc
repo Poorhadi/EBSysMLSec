@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+<org.eventb.core.carrierSet name="_iH2-AErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Phases"/>
+<org.eventb.core.carrierSet name="_iH2-AUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="PositionReport"/>
+<org.eventb.core.carrierSet name="_iH3lEErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Measurement"/>
+<org.eventb.core.carrierSet name="_iH3lEUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="TraveledDistance"/>
+<org.eventb.core.carrierSet name="_iH3lEkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="BrakingActivation"/>
+<org.eventb.core.constant name="_iH3lE0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_PositionReport"/>
+<org.eventb.core.constant name="_iH3lFErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_PositionReport"/>
+<org.eventb.core.constant name="_iH3lFUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_Measurement"/>
+<org.eventb.core.constant name="_iH4MIErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_Measurement"/>
+<org.eventb.core.constant name="_iH4MIUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_EmergencyBrake"/>
+<org.eventb.core.constant name="_iH4MIkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_EmergencyBrake"/>
+<org.eventb.core.constant name="_iH4MI0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_ModelingPurposeByRBC"/>
+<org.eventb.core.constant name="_iH4zMErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_ModelingPurposeByRBC"/>
+<org.eventb.core.constant name="_iH4zMUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_TraveledDistance"/>
+<org.eventb.core.constant name="_iH4zMkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_TraveledDistance"/>
+<org.eventb.core.constant name="_iH4zM0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_BrakingActivation"/>
+<org.eventb.core.constant name="_iH5aQErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_BrakingActivation"/>
+<org.eventb.core.constant name="_iH5aQUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_Empty"/>
+<org.eventb.core.constant name="_iH5aQkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_Empty"/>
+<org.eventb.core.constant name="_iH5aQ0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_BrakingTriggered"/>
+<org.eventb.core.constant name="_iH5aRErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_BrakingTriggered"/>
+<org.eventb.core.constant name="_iH5aRUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="r_ModelingPurposeByBRK"/>
+<org.eventb.core.constant name="_iH6BUErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="s_ModelingPurposeByBRK"/>
+<org.eventb.core.constant name="_iH6BUUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="PositionReport_minSafe"/>
+<org.eventb.core.constant name="_iH6BUkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="PositionReport_maxSafe"/>
+<org.eventb.core.constant name="_iH6BU0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="PositionReport_mac"/>
+<org.eventb.core.constant name="_iH6BVErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Measurement_minSafe"/>
+<org.eventb.core.constant name="_iH6oYErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="Measurement_maxSafe"/>
+<org.eventb.core.constant name="_iH6oYUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="TraveledDistance_distance"/>
+<org.eventb.core.constant name="_iH6oYkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="BrakingActivation_activation"/>
+<org.eventb.core.axiom name="_iH6oY0rtEe2dfPVZTbUaQQ" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(Phases,{r_PositionReport},{s_PositionReport},{r_Measurement},{s_Measurement},{r_EmergencyBrake},{s_EmergencyBrake},{r_ModelingPurposeByRBC},{s_ModelingPurposeByRBC},{r_TraveledDistance},{s_TraveledDistance},{r_BrakingActivation},{s_BrakingActivation},{r_Empty},{s_Empty},{r_BrakingTriggered},{s_BrakingTriggered},{r_ModelingPurposeByBRK},{s_ModelingPurposeByBRK})"/>
+<org.eventb.core.axiom name="_iH7PcErtEe2dfPVZTbUaQQ" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(PositionReport,{PositionReport_minSafe},{PositionReport_maxSafe},{PositionReport_mac})"/>
+<org.eventb.core.axiom name="_iH7PcUrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(Measurement,{Measurement_minSafe},{Measurement_maxSafe})"/>
+<org.eventb.core.axiom name="_iH7PckrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(TraveledDistance,{TraveledDistance_distance})"/>
+<org.eventb.core.axiom name="_iH72gErtEe2dfPVZTbUaQQ" org.eventb.core.label="axm5" org.eventb.core.predicate="partition(BrakingActivation,{BrakingActivation_activation})"/>
+<org.eventb.core.carrierSet name="_iH7PckrtEe2dfPVZTbUaQR" org.eventb.core.identifier="attcakstype"/>
+<org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="_iH7PckrtEe2dfPVZTbUaQS" org.eventb.core.identifier="NoAttack"/>
+<org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="_iH7PckrtEe2dfPVZTbUaQT" org.eventb.core.identifier="Less"/>
+<org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="_iH7PckrtEe2dfPVZTbUaQU" org.eventb.core.identifier="No"/>
+<org.eventb.core.axiom name="_iH7PckrtEe2dfPVZTbUaQV" org.eventb.core.label="axm6" org.eventb.core.predicate="partition(attcakstype, {NoAttack}, {Less}, {No})"/>
+</org.eventb.core.contextFile>

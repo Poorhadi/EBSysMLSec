@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="RBC_States" org.eventb.core.type="ℙ(RBC_States)"/>
+<org.eventb.core.poIdentifier name="handlePositionReport" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="emergency" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="EOA" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="supervising" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="danger" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="trainMoving" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="key" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poPredicate name="handlePositionReporu" org.eventb.core.predicate="partition(RBC_States,{supervising},{handlePositionReport},{emergency},{trainMoving})" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHGfMErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="handlePositionReporv" org.eventb.core.predicate="EOA∈ℤ" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHGfMUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="handlePositionReporw" org.eventb.core.predicate="danger∈ℤ" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHGfMkrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="handlePositionReporx" org.eventb.core.predicate="key∈ℤ" org.eventb.core.source="/Railway2/RBCContext.buc|org.eventb.core.contextFile#RBCContext|org.eventb.core.axiom#_nHHGQErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poIdentifier name="BrakingActivation" org.eventb.core.type="ℙ(BrakingActivation)"/>
+<org.eventb.core.poIdentifier name="Phases" org.eventb.core.type="ℙ(Phases)"/>
+<org.eventb.core.poIdentifier name="PositionReport" org.eventb.core.type="ℙ(PositionReport)"/>
+<org.eventb.core.poIdentifier name="Measurement" org.eventb.core.type="ℙ(Measurement)"/>
+<org.eventb.core.poIdentifier name="TraveledDistance" org.eventb.core.type="ℙ(TraveledDistance)"/>
+<org.eventb.core.poIdentifier name="attcakstype" org.eventb.core.type="ℙ(attcakstype)"/>
+<org.eventb.core.poIdentifier name="r_ModelingPurposeByRBC" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_BrakingTriggered" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_EmergencyBrake" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_BrakingActivation" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="PositionReport_minSafe" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="s_PositionReport" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="No" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="s_ModelingPurposeByBRK" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_ModelingPurposeByBRK" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="Measurement_minSafe" org.eventb.core.type="Measurement"/>
+<org.eventb.core.poIdentifier name="s_Measurement" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_TraveledDistance" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_EmergencyBrake" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="NoAttack" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="PositionReport_mac" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="s_TraveledDistance" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="PositionReport_maxSafe" org.eventb.core.type="PositionReport"/>
+<org.eventb.core.poIdentifier name="Less" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="s_BrakingActivation" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_BrakingTriggered" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="Measurement_maxSafe" org.eventb.core.type="Measurement"/>
+<org.eventb.core.poIdentifier name="BrakingActivation_activation" org.eventb.core.type="BrakingActivation"/>
+<org.eventb.core.poIdentifier name="s_ModelingPurposeByRBC" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_PositionReport" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="TraveledDistance_distance" org.eventb.core.type="TraveledDistance"/>
+<org.eventb.core.poIdentifier name="r_Empty" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="s_Empty" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="r_Measurement" org.eventb.core.type="Phases"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatioo" org.eventb.core.predicate="partition(Phases,{r_PositionReport},{s_PositionReport},{r_Measurement},{s_Measurement},{r_EmergencyBrake},{s_EmergencyBrake},{r_ModelingPurposeByRBC},{s_ModelingPurposeByRBC},{r_TraveledDistance},{s_TraveledDistance},{r_BrakingActivation},{s_BrakingActivation},{r_Empty},{s_Empty},{r_BrakingTriggered},{s_BrakingTriggered},{r_ModelingPurposeByBRK},{s_ModelingPurposeByBRK})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH6oY0rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatiop" org.eventb.core.predicate="partition(PositionReport,{PositionReport_minSafe},{PositionReport_maxSafe},{PositionReport_mac})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatioq" org.eventb.core.predicate="partition(Measurement,{Measurement_minSafe},{Measurement_maxSafe})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PcUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatior" org.eventb.core.predicate="partition(TraveledDistance,{TraveledDistance_distance})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PckrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatios" org.eventb.core.predicate="partition(BrakingActivation,{BrakingActivation_activation})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH72gErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="BrakingActivation_activatiot" org.eventb.core.predicate="partition(attcakstype,{NoAttack},{Less},{No})" org.eventb.core.source="/Railway2/MainContext.buc|org.eventb.core.contextFile#MainContext|org.eventb.core.axiom#_iH7PckrtEe2dfPVZTbUaQV"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="message_BrakingActivation" org.eventb.core.type="ℙ(BrakingActivation×ℤ)"/>
+<org.eventb.core.poIdentifier name="message_TraveledDistance" org.eventb.core.type="ℙ(TraveledDistance×ℤ)"/>
+<org.eventb.core.poIdentifier name="recv_message_PositionReport" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="ConnStatus" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="message_PositionReport" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="phase" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="message_Measurement" org.eventb.core.type="ℙ(Measurement×ℤ)"/>
+<org.eventb.core.poIdentifier name="RBC_state" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="estimation" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporu" org.eventb.core.predicate="phase∈Phases" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqE88ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporv" org.eventb.core.predicate="message_PositionReport∈PositionReport → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqFkAErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporw" org.eventb.core.predicate="message_Measurement∈Measurement → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqGLEErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporx" org.eventb.core.predicate="message_TraveledDistance∈TraveledDistance → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqGLEUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionRepory" org.eventb.core.predicate="message_BrakingActivation∈BrakingActivation → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqGyIErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="recv_message_PositionReporz" org.eventb.core.predicate="recv_message_PositionReport∈PositionReport → ℤ" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.invariant#_RqHZMErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd22/WD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu("/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="attack=0⇒PositionReport_minSafe∈dom(message_PositionReport)∧message_PositionReport∈PositionReport ⇸ ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu("/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd23/WD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu)"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="attack=0⇒PositionReport_maxSafe∈dom(message_PositionReport)∧message_PositionReport∈PositionReport ⇸ ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu)"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd24/WD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="attack=0⇒PositionReport_mac∈dom(message_PositionReport)∧message_PositionReport∈PositionReport ⇸ ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVbokrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVbokrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu*"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd6/GRD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTALLHYPrecv_message_PositionReporu">
+<org.eventb.core.poPredicate name="'" org.eventb.core.predicate="⊤" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="guideword∈{NoAttack,Less}" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqWCskrtEe2dfPVZTbUaQR"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqWCskrtEe2dfPVZTbUaQR"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poSequent#supervising_To_handlePositionReport\/grd6\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd2/GRD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTALLHYPrecv_message_PositionReporu">
+<org.eventb.core.poPredicate name="'" org.eventb.core.predicate="⊤" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(guideword=NoAttack⇒par_minSafe=message_PositionReport(PositionReport_minSafe))∧(guideword=Less⇒par_minSafe&lt;message_PositionReport(PositionReport_minSafe))" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poSequent#supervising_To_handlePositionReport\/grd2\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd3/GRD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTALLHYPrecv_message_PositionReporu">
+<org.eventb.core.poPredicate name="'" org.eventb.core.predicate="⊤" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(guideword=NoAttack⇒par_maxSafe=message_PositionReport(PositionReport_maxSafe))∧(guideword=Less⇒par_maxSafe&lt;message_PositionReport(PositionReport_maxSafe))" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poSequent#supervising_To_handlePositionReport\/grd3\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="supervising_To_handlePositionReport/grd4/GRD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTALLHYPrecv_message_PositionReporu">
+<org.eventb.core.poPredicate name="'" org.eventb.core.predicate="⊤" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(guideword=NoAttack⇒par_mac=message_PositionReport(PositionReport_mac))∧(guideword=Less⇒par_mac=0)" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVbokrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Railway2/AbstractMachine.bum|org.eventb.core.machineFile#AbstractMachine|org.eventb.core.event#_RqTmcErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVbokrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poSequent#supervising_To_handlePositionReport\/grd4\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporu" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="rnd4" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="par_maxSafe" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="attack" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="minSafe" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="rnd5" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="ConnStatus'" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="estimation'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="rnd1" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="mac" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="maxSafe" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="par3" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="guideword" org.eventb.core.type="attcakstype"/>
+<org.eventb.core.poIdentifier name="par_mac" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="par7" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="par_estimation" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="par_minSafe" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="recv_message_PositionReport'" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="par_ConnStatus" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="par2" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="par6" org.eventb.core.type="BOOL"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPrecv_message_PositionReporu(" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporu" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=s_PositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqU0kUrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPrecv_message_PositionReporu)" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu(" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="(attack=0⇒par_minSafe=message_PositionReport(PositionReport_minSafe))∧(attack=1⇒par_minSafe=999)∧par_minSafe∈ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPrecv_message_PositionReporu*" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu)" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="(attack=0⇒par_maxSafe=message_PositionReport(PositionReport_maxSafe))∧(attack=1⇒par_maxSafe=999)∧par_maxSafe∈ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVboUrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporu" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTHYPrecv_message_PositionReporu*" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="(attack=0⇒par_mac=message_PositionReport(PositionReport_mac))∧(attack=1⇒par_mac=999)∧par_mac∈ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqVbokrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="attack∈{0,2}" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqWCsErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="RBC_state=supervising" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_opyaBErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="par_minSafe=minSafe∧par_maxSafe=maxSafe∧par_mac=mac" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_opyaBUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="attack=rnd1∗2" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K8ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="rnd1∈0 ‥ 1" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K8UrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="attack=0⇔par2=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K8krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD10" org.eventb.core.predicate="par2=TRUE⇒par_estimation=maxSafe" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K80rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD11" org.eventb.core.predicate="par2=TRUE⇒par_ConnStatus=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K9ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD12" org.eventb.core.predicate="attack=2⇔par3=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K9UrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD13" org.eventb.core.predicate="par3=TRUE⇒minSafe=rnd4" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K9krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD14" org.eventb.core.predicate="rnd4∈−1000 ‥ 1000" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K90rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD15" org.eventb.core.predicate="par3=TRUE⇒maxSafe=minSafe+rnd5" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K-ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD16" org.eventb.core.predicate="rnd5∈0 ‥ 100" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K-UrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD17" org.eventb.core.predicate="par3=TRUE⇒mac=minSafe+maxSafe+key − 1" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K-krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD18" org.eventb.core.predicate="minSafe+maxSafe+key=mac⇔par6=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K-0rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD19" org.eventb.core.predicate="par3=TRUE∧par6=TRUE⇒par_estimation=maxSafe" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K_ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD20" org.eventb.core.predicate="par3=TRUE∧par6=TRUE⇒par_ConnStatus=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K_UrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD21" org.eventb.core.predicate="minSafe+maxSafe+key≠mac⇔par7=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K_krtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD22" org.eventb.core.predicate="par3=TRUE∧par7=TRUE⇒par_estimation=estimation" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8K_0rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD23" org.eventb.core.predicate="par3=TRUE∧par7=TRUE⇒par_ConnStatus=FALSE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_opyZ9krtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LAErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporv" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporv" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporv" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=r_PositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LBErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqInUErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="RBC_state=handlePositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LBErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LBUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="ConnStatus=FALSE∨estimation≥EOA" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LBErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LBkrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporw" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporw" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporw" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=r_PositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LCErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqMRsErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="RBC_state=handlePositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LCErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LCUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="estimation&lt;EOA∧ConnStatus=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LCErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LCkrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporx" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporx" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporx" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=r_PositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LDErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqKcgErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="RBC_state=handlePositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LDErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LDUrtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="estimation&lt;EOA∧ConnStatus=TRUE" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LDErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LDkrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionRepory" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionRepory" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionRepory" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="RBC_state=emergency" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LEErtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LEUrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionReporz" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionReporz" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionReporz" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="phase=r_PositionReport" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LE0rtEe2dfPVZTbUaQQ|org.eventb.core.guard#_RqInUErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="RBC_state=trainMoving" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.event#_op8LE0rtEe2dfPVZTbUaQQ|org.eventb.core.guard#_op8LFErtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTrecv_message_PositionRepor{" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="message_BrakingActivation'" org.eventb.core.type="ℙ(BrakingActivation×ℤ)"/>
+<org.eventb.core.poIdentifier name="RBC_state'" org.eventb.core.type="RBC_States"/>
+<org.eventb.core.poIdentifier name="message_Measurement'" org.eventb.core.type="ℙ(Measurement×ℤ)"/>
+<org.eventb.core.poIdentifier name="ConnStatus'" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="estimation'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="message_PositionReport'" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="phase'" org.eventb.core.type="Phases"/>
+<org.eventb.core.poIdentifier name="recv_message_PositionReport'" org.eventb.core.type="ℙ(PositionReport×ℤ)"/>
+<org.eventb.core.poIdentifier name="message_TraveledDistance'" org.eventb.core.type="ℙ(TraveledDistance×ℤ)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPrecv_message_PositionRepor{" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#EVTIDENTrecv_message_PositionRepor{" org.eventb.core.poStamp="4"/>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Railway2/RBCMachine.bpo|org.eventb.core.poFile#RBCMachine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="RBC_state∈RBC_States" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.invariant#_opyZ80rtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="ConnStatus∈BOOL" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.invariant#_opyZ9ErtEe2dfPVZTbUaQQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="estimation∈ℤ" org.eventb.core.source="/Railway2/RBCMachine.bum|org.eventb.core.machineFile#RBCMachine|org.eventb.core.invariant#_opyZ9UrtEe2dfPVZTbUaQQ"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

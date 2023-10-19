@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.carrierSet name="_ZDnWUErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="BrakingSystem_States"/>
+    <org.eventb.core.constant name="_ZDnWUUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="waitingForATP"/>
+    <org.eventb.core.constant name="_ZDnWUkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="activated"/>
+    <org.eventb.core.constant name="_ZDnWU0rtEe2dfPVZTbUaQQ" org.eventb.core.identifier="disengaged"/>
+    <org.eventb.core.constant name="_ZDn9YErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="receive"/>
+    <org.eventb.core.axiom name="_ZDn9YUrtEe2dfPVZTbUaQQ" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(BrakingSystem_States,{waitingForATP},{activated},{disengaged},{receive})"/>
+</org.eventb.core.contextFile>

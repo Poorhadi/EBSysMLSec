@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.variable name="_axhCkErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="BrakingSystem_state"/>
+    <org.eventb.core.variable name="_axhpoErtEe2dfPVZTbUaQQ" org.eventb.core.identifier="active"/>
+    <org.eventb.core.invariant name="_axhpoUrtEe2dfPVZTbUaQQ" org.eventb.core.label="inv1" org.eventb.core.predicate="BrakingSystem_state ∈ BrakingSystem_States"/>
+    <org.eventb.core.invariant name="_axhpokrtEe2dfPVZTbUaQQ" org.eventb.core.label="inv2" org.eventb.core.predicate="active∈ℤ "/>
+    <org.eventb.core.event name="_axiQsErtEe2dfPVZTbUaQQ" org.eventb.core.comment="Refines Receiving_BrakingActivation" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="waitingForATP_To_receive">
+        <org.eventb.core.parameter name="_RqcwYkrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_activation"/>
+        <org.eventb.core.guard name="_RqdXcErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=s_BrakingActivation"/>
+        <org.eventb.core.guard name="_RqdXcUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="par_activation= message_BrakingActivation(BrakingActivation_activation)"/>
+        <org.eventb.core.action name="_RqdXckrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_BrakingActivation" org.eventb.core.label="act1"/>
+        <org.eventb.core.parameter name="_axiQsUrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="activation"/>
+        <org.eventb.core.parameter name="_axiQskrtEe2dfPVZTbUaQQ" org.eventb.core.identifier="par_active"/>
+        <org.eventb.core.guard name="_axi3wErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="BrakingSystem_state = waitingForATP"/>
+        <org.eventb.core.guard name="_axi3wUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd4" org.eventb.core.predicate="par_activation = activation "/>
+        <org.eventb.core.guard name="_axi3wkrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd5" org.eventb.core.predicate="par_active=activation"/>
+        <org.eventb.core.action name="_axje0ErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="BrakingSystem_state ≔ receive" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_axje0UrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="active ≔ par_active" org.eventb.core.label="act3"/>
+        <org.eventb.core.refinesEvent name="_axje0UrtEe2dfPVZTbUaQR" org.eventb.core.target="Receiving_BrakingActivation"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_axkF4ErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="receive_To_disengaged">
+        <org.eventb.core.guard name="_RqRKMUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_BrakingActivation "/>
+        <org.eventb.core.action name="_RqRxQErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="_axkF4UrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="BrakingSystem_state = receive"/>
+        <org.eventb.core.guard name="_axks8ErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="active = 0"/>
+        <org.eventb.core.action name="_axlUAErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="BrakingSystem_state ≔ disengaged" org.eventb.core.label="act2"/>
+        <org.eventb.core.refinesEvent name="_axlUAErtEe2dfPVZTbUaQR" org.eventb.core.target="Sending_ModelingPurposeByBRK"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_axl7EErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="receive_To_activated">
+        <org.eventb.core.guard name="_RqOG4UrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="phase=r_BrakingActivation "/>
+        <org.eventb.core.action name="_RqOt8ErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ s_BrakingTriggered" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="_axl7EUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd2" org.eventb.core.predicate="BrakingSystem_state = receive"/>
+        <org.eventb.core.guard name="_axmiIErtEe2dfPVZTbUaQQ" org.eventb.core.label="grd3" org.eventb.core.predicate="active = 1"/>
+        <org.eventb.core.action name="_axmiIUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="BrakingSystem_state ≔ activated" org.eventb.core.label="act2"/>
+        <org.eventb.core.refinesEvent name="_axmiIUrtEe2dfPVZTbUaQR" org.eventb.core.target="Sending_BrakingTriggered"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_axnJMErtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="disengaged_To_waitingForATP">
+        <org.eventb.core.guard name="_axnJMUrtEe2dfPVZTbUaQQ" org.eventb.core.label="grd1" org.eventb.core.predicate="BrakingSystem_state = disengaged"/>
+        <org.eventb.core.action name="_axnwQErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="BrakingSystem_state ≔ waitingForATP" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_axnwQUrtEe2dfPVZTbUaQQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_RqelkErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="phase ≔ r_ModelingPurposeByBRK" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_RqelkUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_PositionReport:∈PositionReport→ ℤ" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_RqfMoErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_Measurement:∈Measurement→ ℤ" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_RqfMoUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_TraveledDistance:∈TraveledDistance→ ℤ" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="_RqfzsErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="message_BrakingActivation:∈BrakingActivation→ ℤ" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="_RqfzsUrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="recv_message_PositionReport:∈PositionReport→ℤ" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="_axnwQkrtEe2dfPVZTbUaQQ" org.eventb.core.assignment="BrakingSystem_state  ≔ waitingForATP" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="_axoXUErtEe2dfPVZTbUaQQ" org.eventb.core.assignment="active≔0" org.eventb.core.label="act8"/>
+    </org.eventb.core.event>
+    <org.eventb.core.refinesMachine name="_axnwQUrtEe2dfPVZTbUaQR" org.eventb.core.target="AbstractMachine"/>
+    <org.eventb.core.seesContext name="_axnwQUrtEe2dfPVZTbUaQS" org.eventb.core.target="BrakingSystemContext"/>
+    <org.eventb.core.seesContext name="_axnwQUrtEe2dfPVZTbUaQT" org.eventb.core.target="MainContext"/>
+    <org.eventb.core.variable name="_axnwQUrtEe2dfPVZTbUaQU" org.eventb.core.identifier="phase"/>
+    <org.eventb.core.variable name="_axnwQUrtEe2dfPVZTbUaQV" org.eventb.core.identifier="message_BrakingActivation"/>
+    <org.eventb.core.variable name="_axnwQUrtEe2dfPVZTbUaQW" org.eventb.core.identifier="message_PositionReport"/>
+    <org.eventb.core.variable name="_axnwQUrtEe2dfPVZTbUaQX" org.eventb.core.identifier="message_Measurement"/>
+    <org.eventb.core.variable name="_axnwQUrtEe2dfPVZTbUaQY" org.eventb.core.identifier="message_TraveledDistance"/>
+    <org.eventb.core.variable name="_axnwQUrtEe2dfPVZTbUaQZ" org.eventb.core.identifier="recv_message_PositionReport"/>
+</org.eventb.core.machineFile>
